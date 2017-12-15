@@ -32,10 +32,11 @@ public class LoginForm extends JFrame implements Serializable{
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
+    private JLabel jLabel4;
     private JTextField jTextField1;
     private JPasswordField jPasswordField1;
     private JPanel jPanel1;
-     
+    private JComboBox jComboBox1; 
     
     
     private void initComponents() {
@@ -50,20 +51,30 @@ public class LoginForm extends JFrame implements Serializable{
         jLabel1 = new JLabel("Login");
         jLabel2 = new JLabel("User Name");
         jLabel3 = new JLabel("Password");
+        jLabel4 = new JLabel("Login as ");
         jTextField1 = new JTextField();
         jPasswordField1 = new JPasswordField();
         jButton1 = new JButton("SignIn");
         jButton2 = new JButton("SignUp");
+        jComboBox1 = new JComboBox ();
+         jComboBox1.addItem("CustomerAgent");
+        jComboBox1.addItem("Teller");
+        jComboBox1.addItem("Manager");
+        jComboBox1.addItem("LoanOfficer");
+        jComboBox1.addItem("Customer");
+        jComboBox1.setBounds(80,140,120,25);
         
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
        //set bounds
         jLabel1.setBounds(250,10,50,30);
         jLabel1.setForeground(Color.white);
-        jLabel2.setBounds(10,45,80,50);
+        jLabel2.setBounds(10,40,80,50);
         jLabel2.setForeground(Color.white);
-        jLabel3.setBounds(10,95,80,50);
+        jLabel3.setBounds(10,90,80,50);
         jLabel3.setForeground(Color.white);
+        jLabel4.setBounds(10,125,80,50);
+        jLabel4.setForeground(Color.white);
         
         jTextField1.setBounds(80,50,120,25);
         jPasswordField1.setBounds(80,100,120,25);
@@ -85,6 +96,8 @@ public class LoginForm extends JFrame implements Serializable{
              jPanel1.add(jLabel3);                                              
              jPanel1.add(jPasswordField1);
              jPanel1.add(jTextField1);  
+             jPanel1.add(jComboBox1);
+             jPanel1.add(jLabel4);
              jButton1.addActionListener(new ButtonWatcher());
     }
     
