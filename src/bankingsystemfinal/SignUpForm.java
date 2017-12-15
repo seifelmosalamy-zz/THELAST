@@ -363,7 +363,7 @@ public class SignUpForm extends JFrame
                       try{
          ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Employee.txt"));
          x= (ArrayList< AccountInfo>)inp.readObject();
-       System.out.print("read");
+         
         }catch(Exception c){
             exit(0);
             }
