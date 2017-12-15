@@ -71,29 +71,17 @@ public class SignUpForm extends JFrame
     private JRadioButton jRadioButton1;
     private JRadioButton jRadioButton2;
     private ButtonGroup buttongp1;
-<<<<<<< HEAD
+
     private JButton btnCustomer ;
      private  JComboBox comboCustomer = new JComboBox<>();
   private JPanel panel = new JPanel();
-=======
-private JButton btnCustomer ;
-   private  JComboBox comboCustomer = new JComboBox<>(); 
-private JPanel panel = new JPanel();
 
->>>>>>> 091d9d258afe73e59068a34100b6a4e5d5ad1be5
+
         public SignUpForm()  {
         
                 //Panel
         setTitle("Sign Up");
         JPanel panel = new JPanel();
-
-<<<<<<< HEAD
-        
-   
-        
-=======
-    
->>>>>>> 091d9d258afe73e59068a34100b6a4e5d5ad1be5
     
                 //Panel
                  
