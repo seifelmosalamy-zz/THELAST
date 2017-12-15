@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package bankingsystemfinal;
+import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
+import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
+import static bankingsystemfinal.BankingSystemFinal.Manager;
+import static bankingsystemfinal.BankingSystemFinal.Teller;
 import static bankingsystemfinal.BankingSystemFinal.a;
 import static bankingsystemfinal.BankingSystemFinal.labelbounds;
 import static bankingsystemfinal.BankingSystemFinal.list1;
@@ -63,8 +67,9 @@ public class SignUpForm extends JFrame   {
     private JButton SaveButton ;
     private JLabel PasswordLabel;
     private JPasswordField jPasswordField1;
-   // private JRadioButton jRadioButton1;
+    private JRadioButton jRadioButton1;
     private JRadioButton jRadioButton2;
+    private ButtonGroup buttongp1 ;
 
         public SignUpForm(String s )  {
             super(s);
@@ -85,6 +90,7 @@ public class SignUpForm extends JFrame   {
             setSize(1000,500);
             
       //Initializing variables 
+      buttongp1= new ButtonGroup();
       PasswordLabel = new JLabel("Password");
       UserNameTextField = new JTextField("Enter UserName");
         UserNameLabel = new JLabel("User Name");
@@ -116,6 +122,7 @@ public class SignUpForm extends JFrame   {
         jButton4 = new JButton();
         jButton5 = new JButton();       
         jRadioButton2 = new JRadioButton();
+        jRadioButton1 = new JRadioButton();
         jLabel14 = new JLabel();
         jLabel15 = new JLabel();
         SaveButton = new JButton();
@@ -130,6 +137,13 @@ public class SignUpForm extends JFrame   {
          SaveButton.addActionListener(new ButtonWatcher());
          ReadButton.addActionListener(new ButtonWatcher());
         //Setting Bounds 
+        jComboBox1.addItem("CustomerAgent");
+        jComboBox1.addItem("Teller");
+        jComboBox1.addItem("Manager");
+        jComboBox1.addItem("LoanOfficer");
+        jComboBox1.addItem("Customer");
+        jComboBox1.setBounds(textfieldbounds);
+        
         jPasswordField1.setBounds(textfieldbounds);
         UserNameLabel.setBounds(labelbounds);
         jButton1.setBounds(labelbounds);
@@ -157,6 +171,10 @@ public class SignUpForm extends JFrame   {
         jLabel15.setBounds(labelbounds);
         UserNameTextField.setBounds(textfieldbounds);
         PasswordLabel.setBounds(labelbounds);
+        jRadioButton1.setBounds(labelbounds);
+        jRadioButton2.setBounds(labelbounds);
+        jRadioButton1.setText("Male");
+        jRadioButton2.setText("Female");
         
         //Colors
         jLabel1.setForeground(Color.white);
@@ -170,7 +188,8 @@ public class SignUpForm extends JFrame   {
         PasswordLabel.setForeground(Color.white);
         
        //Adding to the form 
-       
+       buttongp1.add(jRadioButton1);
+        buttongp1.add(jRadioButton2);
         panel.add(UserNameLabel);
         panel.add(UserNameTextField);
         panel.add(PasswordLabel);
@@ -192,7 +211,9 @@ public class SignUpForm extends JFrame   {
         panel.add(jButton2);
         panel.add(SaveButton);
         panel.add(ReadButton);
-        
+        panel.add(jComboBox1);
+        panel.add(jRadioButton1);
+        panel.add(jRadioButton2);
       
         
 
@@ -216,13 +237,29 @@ public class SignUpForm extends JFrame   {
                     Object buttonpressed = e.getSource();
 
                     if (buttonpressed.equals(jButton1)){
+                        if(buttonpressed.equals(jRadioButton1))
+                        a.setGender("Male");
+                        else if(buttonpressed.equals(jRadioButton2))
+                                a.setGender("Female");
+                                          
                         String U = UserNameTextField.getText();
+                        for (AccountInfo searchitem : x){
+  
+                if (searchitem.getUserName().equals(U)){
+                    U="found";
+                }}
+                        if(U.equals("Enter UserName") || U.equals("") || U.equals("found"))
+                            JOptionPane.showMessageDialog(null, "Enter another user name");
+                        else{
+                        a.setUserName(U);}
                         
-                        a.setUserName(U);
                         String s = jTextField1.getText();
                         
                         char[] p = jPasswordField1.getPassword();
-                        a.setPassword(p);
+                        if(p.equals("Enter Password") || p.equals(""))
+                            JOptionPane.showMessageDialog(null, "Enter a valid password");
+                        else{
+                        a.setPassword(p);}
                      if(s.equals("Enter your first name") || s.equals(""))
                      {
                        Jlabelname.setText("Enter valid name");
@@ -234,7 +271,10 @@ public class SignUpForm extends JFrame   {
                          a.setFname(s);
                      }
                  String lname = jTextField2.getText();
-                         a.setLname(lname);
+                 if(lname.equals("Enter your last name") || lname.equals(""))
+                     JOptionPane.showMessageDialog(null, "Enter a valid Last name");
+                 else{
+                         a.setLname(lname);}
 
                  String email = jTextField3.getText();
             a.setEmail(email);
@@ -296,10 +336,22 @@ public class SignUpForm extends JFrame   {
                 }
                 else if (buttonpressed.equals(SaveButton))
                 {
+                    String type =jComboBox1.getSelectedItem().toString();
+                    ArrayList<AccountInfo> choosen= new ArrayList<AccountInfo>(3);                  
+                    if(type.equals("CustomerAgent"))
+                        choosen=CustomerAgentList;
+                    else if(type.equals("Teller"))
+                        choosen=Teller;
+                    else if(type.equals("Manager"))
+                        choosen=Manager;
+                    else if(type.equals("LoanOfficer"))
+                        choosen=LoanOfficer;
+                    else if(type.equals("Customer"))
+                        choosen=list1;
                      try {
-            list1.add(a);
-            ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream("Employee.txt"));
-            ob.writeObject(list1);
+            choosen.add(a);
+            ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream(type));
+            ob.writeObject(choosen);
             ob.close();      
               } catch (IOException ex) {}
         

@@ -49,7 +49,6 @@ public class BankingSystemFinal implements Serializable{
   public static ArrayList<AccountInfo> CustomerAgentList= new ArrayList<AccountInfo>(3);
    public static ArrayList<AccountInfo> HrList = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> Teller = new ArrayList< AccountInfo>();
-   public static ArrayList<AccountInfo> CustomerServiceAgent = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> Manager = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> LoanOfficer = new ArrayList< AccountInfo>();
    public static     LoansApplicationForm ob = new LoansApplicationForm();
