@@ -73,10 +73,11 @@ public class SignUpForm extends JFrame
     private ButtonGroup buttongp1;
     
 
-        public SignUpForm(String s )  {
-            super(s);
+        public SignUpForm()  {
+        
                 //Panel
-                 JPanel panel = new JPanel();
+        setTitle("Sign Up");
+        JPanel panel = new JPanel();
         setLayout(null);
         panel.setBounds(500, 0, 500, 500);
         panel.setLayout(new FlowLayout());
@@ -352,7 +353,7 @@ public class SignUpForm extends JFrame
                         choosen=list1;
                      try {
             choosen.add(a);
-            ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream(type));
+            ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream(type+".txt"));
             ob.writeObject(choosen);
             ob.close();      
               } catch (IOException ex) {}
@@ -361,7 +362,7 @@ public class SignUpForm extends JFrame
                 else if ( buttonpressed.equals(ReadButton))
                 {
                       try{
-         ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Employee.txt"));
+         ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
          x= (ArrayList< AccountInfo>)inp.readObject();
          
         }catch(Exception c){

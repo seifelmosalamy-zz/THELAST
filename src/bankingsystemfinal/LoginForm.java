@@ -1,5 +1,9 @@
 package bankingsystemfinal;
 
+import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
+import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
+import static bankingsystemfinal.BankingSystemFinal.Manager;
+import static bankingsystemfinal.BankingSystemFinal.Teller;
 import static bankingsystemfinal.BankingSystemFinal.labelbounds;
 import static bankingsystemfinal.BankingSystemFinal.a;
 import static bankingsystemfinal.BankingSystemFinal.hm;
@@ -11,6 +15,7 @@ import java.io.Serializable;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 /**
  *
@@ -99,6 +104,7 @@ public class LoginForm extends JFrame implements Serializable{
              jPanel1.add(jComboBox1);
              jPanel1.add(jLabel4);
              jButton1.addActionListener(new ButtonWatcher());
+             jButton2.addActionListener(new ButtonWatcher());
     }
     
         private class ButtonWatcher implements ActionListener 
@@ -109,11 +115,22 @@ public class LoginForm extends JFrame implements Serializable{
                 Object buttonpressed = e.getSource();
                 if (buttonpressed.equals(jButton1)){
                 String UN = jTextField1.getText();
-              
-               for (AccountInfo HashMapItem : x){
+                String type =jComboBox1.getSelectedItem().toString();
+               ArrayList<AccountInfo> choosen1= new ArrayList<AccountInfo>(3);
+               if(type.equals("CustomerAgent"))
+                        choosen1=CustomerAgentList;
+                    else if(type.equals("Teller"))
+                        choosen1=Teller;
+                    else if(type.equals("Manager"))
+                        choosen1=Manager;
+                    else if(type.equals("LoanOfficer"))
+                        choosen1=LoanOfficer;
+                    else if(type.equals("Customer"))
+                        choosen1=list1;
+               for (AccountInfo HashMapItem : choosen1){
                hm.put(HashMapItem.getUserName(), HashMapItem.getPassword());
                }
-                for (AccountInfo searchitem : x){
+                for (AccountInfo searchitem : choosen1){
   
                 if (searchitem.getUserName().equals(UN)){
                    char hashpw[]= hm.get(UN);
@@ -122,7 +139,7 @@ public class LoginForm extends JFrame implements Serializable{
                    char loginformpw[]=jPasswordField1.getPassword();
                 
                 if((hashpw.length < loginformpw.length) || (hashpw.length >loginformpw.length) ){
-                JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
+                JOptionPane.showMessageDialog(null, "Invalid User Name or Password or type");
                 
                 }
                 else{  
@@ -147,7 +164,14 @@ public class LoginForm extends JFrame implements Serializable{
                         }}
             
                     
-                }}
+                }
+                else if(buttonpressed.equals(jButton2)){
+                
+              SignUpForm SUF= new SignUpForm();
+              SUF.setVisible(true);
+                    setVisible(false);
+                }
+                }
                 }
                 
                 }
