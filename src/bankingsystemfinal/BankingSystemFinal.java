@@ -62,35 +62,35 @@ public class BankingSystemFinal implements Serializable{
          x= (ArrayList< AccountInfo>)inp.readObject();
          inp.close();
         }catch(Exception c){
-            exit(0);
+            
             }
 try{
          ObjectInputStream inp2 = new ObjectInputStream(new FileInputStream("CustomerAgent.txt"));
          CustomerAgentList= (ArrayList< AccountInfo>)inp2.readObject();
          inp2.close();
         }catch(Exception c){
-            exit(0);
+            
             }
 try{
          ObjectInputStream inp3 = new ObjectInputStream(new FileInputStream("Teller.txt"));
          Teller= (ArrayList< AccountInfo>)inp3.readObject();
          inp3.close();
         }catch(Exception c){
-            exit(0);
+            
             }
 try{
          ObjectInputStream inp4 = new ObjectInputStream(new FileInputStream("Manager.txt"));
          Manager= (ArrayList< AccountInfo>)inp4.readObject();
          inp4.close();
         }catch(Exception c){
-            exit(0);
+            
             }
 try{
          ObjectInputStream inp5 = new ObjectInputStream(new FileInputStream("LoanOfficer.txt"));
          LoanOfficer= (ArrayList< AccountInfo>)inp5.readObject();
          inp5.close();
         }catch(Exception c){
-            exit(0);
+            
             }
         SmartWalletForm smf = new SmartWalletForm();
         smf.setVisible(true);
