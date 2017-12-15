@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-public class AccountInfo implements Serializable 
+public class AccountInfo  implements Serializable 
 { 
 
        
@@ -41,7 +41,7 @@ public class AccountInfo implements Serializable
         return UserName;
     }
 
-    public void setUserName(String UserName) {
+    public void setUserName(String UserName)  {
         this.UserName = UserName;
     }
     private String Fname;
