@@ -4,3 +4,6 @@
 build/classes/.netbeans_automatic_build
 build/classes/.netbeans_update_resources
 *.jar
+build/classes/bankingsystemfinal/SignUpForm$ButtonWatcher.class
+build/classes/bankingsystemfinal/SignUpForm.class
+*.class
