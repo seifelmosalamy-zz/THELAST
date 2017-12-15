@@ -1,5 +1,9 @@
 package bankingsystemfinal;
 
+import Staff.CustomerServiceAgentForm;
+import Staff.LoanOfficerForm;
+import Staff.ManagerForm;
+import Staff.TellerForm;
 import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
 import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
 import static bankingsystemfinal.BankingSystemFinal.Manager;
@@ -22,6 +26,11 @@ import java.util.HashMap;
  * @author new
  */
 public class LoginForm extends JFrame implements Serializable{
+    
+    CustomerServiceAgentForm csa = new CustomerServiceAgentForm();
+     TellerForm Tf = new TellerForm();
+      ManagerForm mF = new ManagerForm();
+      LoanOfficerForm Lof = new LoanOfficerForm();
     public LoginForm() {
      
             
@@ -154,6 +163,22 @@ public class LoginForm extends JFrame implements Serializable{
                   if(found==hashpw.length){
                   
                   JOptionPane.showMessageDialog(null, "Valid");
+                  if(type.equals("CustomerAgent")){
+                  csa.setVisible(true);
+                      setVisible(false);}
+                    else if(type.equals("Teller")){
+                  Tf.setVisible(true);
+                      setVisible(false);}
+                    else if(type.equals("Manager")){
+                  mF.setVisible(true);
+                      setVisible(false);}
+                       
+                    else if(type.equals("LoanOfficer")){
+                  Lof.setVisible(true);
+                      setVisible(false);}
+                        
+                    else if(type.equals("Customer"))
+                        JOptionPane.showMessageDialog(null, "Coming Soon");
                   }  else{
                       JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
                   }

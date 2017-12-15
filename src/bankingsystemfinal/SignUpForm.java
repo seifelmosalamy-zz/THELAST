@@ -298,11 +298,11 @@ public class SignUpForm extends JFrame
                                 a.setGender("Female");
                                           
                         String U = UserNameTextField.getText();
-                        for (AccountInfo searchitem : x){
+                       try{ for (AccountInfo searchitem : x){
   
                 if (searchitem.getUserName().equals(U)){
                     U="found";
-                }}
+                }}}catch(Exception n){}
                         if(U.equals("Enter UserName") || U.equals("") || U.equals("found"))
                             JOptionPane.showMessageDialog(null, "Enter another user name");
                         else{
