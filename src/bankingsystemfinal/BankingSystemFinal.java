@@ -83,7 +83,7 @@ try{
          Manager= (ArrayList< AccountInfo>)inp4.readObject();
          inp4.close();
         }catch(Exception c){
-            exit(0);
+            
             }
 try{
          ObjectInputStream inp5 = new ObjectInputStream(new FileInputStream("LoanOfficer.txt"));
