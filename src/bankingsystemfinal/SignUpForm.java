@@ -13,6 +13,7 @@ import static bankingsystemfinal.BankingSystemFinal.labelbounds;
 import static bankingsystemfinal.BankingSystemFinal.list1;
 import static bankingsystemfinal.BankingSystemFinal.textfieldbounds;
 import static bankingsystemfinal.BankingSystemFinal.x;
+import com.sun.org.apache.bcel.internal.generic.Select;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -71,7 +72,7 @@ public class SignUpForm extends JFrame
     private JRadioButton jRadioButton1;
     private JRadioButton jRadioButton2;
     private ButtonGroup buttongp1;
-
+private int y =1;
     private JButton btnCustomer ;
      private  JComboBox comboCustomer = new JComboBox<>();
   private JPanel panel = new JPanel();
@@ -254,21 +255,17 @@ public class SignUpForm extends JFrame
 
                 public void actionPerformed(ActionEvent e) {
                     Object buttonpressed = e.getSource();
-                    int y =1;
                     
+                     if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString() !="Customer" ){
+                     JOptionPane.showMessageDialog(null,"Please Select customer first");
+                     }
                   
-                        if(buttonpressed.equals(btnCustomer) && !jComboBox1.getSelectedItem().equals("Customer") )
+                        if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString() =="Customer" )
                         {
                             
-                            JOptionPane.showMessageDialog(null, "Please Choose sign up as Customer first ");
-                            
-                        }
-                        {
-                            int u = 0;
-                            while (u == 0){
-                            if(jComboBox1.getSelectedItem().equals("Customer")){
+                        
                        
-                   while(y==1)
+                   do{
                    {
                           String s =JOptionPane.showInputDialog(null,"Do you want to open a $ account or an EGP\n for Dollar Press (1) \n For EGP press (2)");
                    
@@ -288,8 +285,8 @@ public class SignUpForm extends JFrame
                          JOptionPane.showMessageDialog(null, "Enter Correct Number");
                      }
                      }
-                         }
-                           u = 3; }
+                         }while(y ==1);
+                          
                             
                     if (buttonpressed.equals(jButton1)){
                         if(buttonpressed.equals(jRadioButton1))
@@ -427,16 +424,3 @@ public class SignUpForm extends JFrame
                 }
                 
   }}
-
-
-          
-   
-        
-     
-    
-      
-
-   
-    
-
-

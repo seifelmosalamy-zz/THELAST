@@ -113,6 +113,8 @@ try{
         TransactionsForm transaction = new TransactionsForm ();
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
+        TransactionsForm tf = new TransactionsForm();
+        tf.setVisible(true);
             Thread thread= new Thread(laf);
             thread.start();
           
