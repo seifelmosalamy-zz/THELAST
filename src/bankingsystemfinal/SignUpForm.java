@@ -71,12 +71,13 @@ public class SignUpForm extends JFrame
     private JRadioButton jRadioButton1;
     private JRadioButton jRadioButton2;
     private ButtonGroup buttongp1;
-    
-
+    private JButton btnCustomer ;
+   private  JComboBox comboCustomer = new JComboBox<>(); 
+private JPanel panel = new JPanel();
         public SignUpForm(String s )  {
             super(s);
                 //Panel
-                 JPanel panel = new JPanel();
+                 
         setLayout(null);
         panel.setBounds(500, 0, 500, 500);
         panel.setLayout(new FlowLayout());
@@ -92,9 +93,9 @@ public class SignUpForm extends JFrame
             setSize(1000,500);
             
       //Initializing variables 
-      buttongp1= new ButtonGroup();
-      PasswordLabel = new JLabel("Password");
-      UserNameTextField = new JTextField("Enter UserName");
+        buttongp1= new ButtonGroup();
+        PasswordLabel = new JLabel("Password");
+        UserNameTextField = new JTextField("Enter UserName");
         UserNameLabel = new JLabel("User Name");
         ReadButton = new JButton ("Read From File");
         Jlabelname = new JLabel();
@@ -129,7 +130,8 @@ public class SignUpForm extends JFrame
         jLabel15 = new JLabel();
         SaveButton = new JButton();
         jPasswordField1 = new JPasswordField("Enter Password");
-          
+        btnCustomer = new JButton("Sign up as a customer");
+        
 
   
             //Listners 
@@ -138,6 +140,8 @@ public class SignUpForm extends JFrame
          jButton2.addActionListener(new ButtonWatcher());
          SaveButton.addActionListener(new ButtonWatcher());
          ReadButton.addActionListener(new ButtonWatcher());
+          jComboBox1.addActionListener(new ButtonWatcher());
+          btnCustomer.addActionListener(new ButtonWatcher());
         //Setting Bounds 
         jComboBox1.addItem("CustomerAgent");
         jComboBox1.addItem("Teller");
@@ -145,7 +149,8 @@ public class SignUpForm extends JFrame
         jComboBox1.addItem("LoanOfficer");
         jComboBox1.addItem("Customer");
         jComboBox1.setBounds(textfieldbounds);
-        
+        comboCustomer.addItem("EGP Account");
+        comboCustomer.addItem("Dollar Account");
         jPasswordField1.setBounds(textfieldbounds);
         UserNameLabel.setBounds(labelbounds);
         jButton1.setBounds(labelbounds);
@@ -171,12 +176,14 @@ public class SignUpForm extends JFrame
         jLabel3.setBounds(labelbounds);
         jLabel14.setBounds(labelbounds);
         jLabel15.setBounds(labelbounds);
+        btnCustomer.setBounds(labelbounds);
         UserNameTextField.setBounds(textfieldbounds);
         PasswordLabel.setBounds(labelbounds);
         jRadioButton1.setBounds(labelbounds);
         jRadioButton2.setBounds(labelbounds);
         jRadioButton1.setText("Male");
         jRadioButton2.setText("Female");
+       
         
         //Colors
         jLabel1.setForeground(Color.white);
@@ -185,12 +192,13 @@ public class SignUpForm extends JFrame
         jLabel4.setForeground(Color.white);
         jLabel6.setForeground(Color.white);
         UserNameLabel.setForeground(Color.white);
+        
         SaveButton.setForeground(Color.black);
         SaveButton.setText("Save to file");
         PasswordLabel.setForeground(Color.white);
         
        //Adding to the form 
-       buttongp1.add(jRadioButton1);
+        buttongp1.add(jRadioButton1);
         buttongp1.add(jRadioButton2);
         panel.add(UserNameLabel);
         panel.add(UserNameTextField);
@@ -216,6 +224,7 @@ public class SignUpForm extends JFrame
         panel.add(jComboBox1);
         panel.add(jRadioButton1);
         panel.add(jRadioButton2);
+        panel.add(btnCustomer);
       
         
 
@@ -237,7 +246,38 @@ public class SignUpForm extends JFrame
 
                 public void actionPerformed(ActionEvent e) {
                     Object buttonpressed = e.getSource();
-
+                    int y =1;
+                    
+                  
+                        if(buttonpressed.equals(btnCustomer) )
+                        {
+                            int u = 0;
+                            while (u == 0){
+                            if(jComboBox1.getSelectedItem().equals("Customer")){
+                       
+                   while(y==1)
+                   {
+                          String s =JOptionPane.showInputDialog(null,"Do you want to open a $ account or an EGP\n for Dollar Press (1) \n For EGP press (2)");
+                   
+                          if(s.equals("1"))
+                     {
+                         a.setAccountCurrencyType("$");
+                                                  JOptionPane.showMessageDialog(null, "You choosed $ Account");
+                         y=2;
+                     }
+                     else if (s.equals("2"))
+                     {      
+                         a.setAccountCurrencyType("EGP");  
+                         JOptionPane.showMessageDialog(null, "You choosed EGP Account");
+                         y=2;
+                     }
+                     else {
+                         JOptionPane.showMessageDialog(null, "Enter Correct Number");
+                     }
+                     }
+                         }
+                           u = 3; }
+                            
                     if (buttonpressed.equals(jButton1)){
                         if(buttonpressed.equals(jRadioButton1))
                         a.setGender("Male");
@@ -300,6 +340,7 @@ public class SignUpForm extends JFrame
               }
             int age ;
             age= Integer.parseInt(jTextField6.getText());
+            
             a.setAge(age);
 
             if(a.getAge() == 0 )
@@ -309,7 +350,7 @@ public class SignUpForm extends JFrame
 
             jLabel10.setForeground(Color.red);
             age= Integer.parseInt(jTextField6.getText());
-
+                
 
                     }
                     else {
@@ -349,6 +390,7 @@ public class SignUpForm extends JFrame
                     else if(type.equals("LoanOfficer"))
                         choosen=LoanOfficer;
                     else if(type.equals("Customer"))
+                        
                         choosen=list1;
                      try {
             choosen.add(a);
@@ -371,7 +413,7 @@ public class SignUpForm extends JFrame
                 }
                 }
                 
-  }
+  }}
 
 
           
