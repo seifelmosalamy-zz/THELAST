@@ -115,6 +115,7 @@ public class LoginForm extends JFrame implements Serializable{
                 Object buttonpressed = e.getSource();
                 if (buttonpressed.equals(jButton1)){
                 String UN = jTextField1.getText();
+                              
                 String type =jComboBox1.getSelectedItem().toString();
                ArrayList<AccountInfo> choosen1= new ArrayList<AccountInfo>(3);
                if(type.equals("CustomerAgent"))
@@ -131,10 +132,10 @@ public class LoginForm extends JFrame implements Serializable{
                hm.put(HashMapItem.getUserName(), HashMapItem.getPassword());
                }
                 for (AccountInfo searchitem : choosen1){
-  
+  try{
                 if (searchitem.getUserName().equals(UN)){
                    char hashpw[]= hm.get(UN);
-                   System.out.print(hashpw);
+                   
                     
                    char loginformpw[]=jPasswordField1.getPassword();
                 
@@ -164,7 +165,9 @@ public class LoginForm extends JFrame implements Serializable{
                         }}
             
                     
-                }
+              catch (Exception r){
+                JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
+                }  }}
                 else if(buttonpressed.equals(jButton2)){
                 
               SignUpForm SUF= new SignUpForm();
