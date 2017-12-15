@@ -39,7 +39,8 @@ import javax.swing.*;
  *
  * @author seifelmosalamy
  */
-public class SignUpForm extends JFrame   {
+public class SignUpForm extends JFrame   
+{
    private JTextField UserNameTextField;
     private JLabel UserNameLabel ; 
     private JButton jButton1;
@@ -69,7 +70,8 @@ public class SignUpForm extends JFrame   {
     private JPasswordField jPasswordField1;
     private JRadioButton jRadioButton1;
     private JRadioButton jRadioButton2;
-    private ButtonGroup buttongp1 ;
+    private ButtonGroup buttongp1;
+    
 
         public SignUpForm(String s )  {
             super(s);

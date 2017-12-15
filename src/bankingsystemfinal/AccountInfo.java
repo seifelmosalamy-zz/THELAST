@@ -1,16 +1,5 @@
 package bankingsystemfinal; 
-import static bankingsystemfinal.BankingSystemFinal.list1;
-import static bankingsystemfinal.BankingSystemFinal.x;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 public class AccountInfo  implements Serializable 
 { 
 
@@ -65,6 +54,24 @@ public class AccountInfo  implements Serializable
     private int Age;
     
     private int BankAmount=0;
+    private int NumberOfTransactions = 0;
+    private String AccountCurrencyType;
+
+    public String getAccountCurrencyType() {
+        return AccountCurrencyType;
+    }
+
+    public void setAccountCurrencyType(String AccountCurrencyType) {
+        this.AccountCurrencyType = AccountCurrencyType;
+    }
+
+    public int getNumberOfTransactions() {
+        return NumberOfTransactions;
+    }
+
+    public void setNumberOfTransactions(int NumberOfTransactions) {
+        this.NumberOfTransactions = NumberOfTransactions;
+    }
 
     public int getBankAmount() {
         return BankAmount;
@@ -75,6 +82,7 @@ public class AccountInfo  implements Serializable
     }
 
     public AccountInfo() {
+        
             
     }
  

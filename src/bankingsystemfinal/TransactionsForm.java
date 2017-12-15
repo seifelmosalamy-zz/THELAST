@@ -13,6 +13,8 @@ import static bankingsystemfinal.BankingSystemFinal.labelbounds;
 import static bankingsystemfinal.BankingSystemFinal.textfieldbounds;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 /**
  *
@@ -22,10 +24,10 @@ public class TransactionsForm extends JFrame
 {
  
     
-            private JButton ttaas;
-            private JButton ttaac;
-            private JButton ttoas;
-            private JButton ttoac;
+            private JButton TranseferToAnotherAccountSameCurrency ;
+            private JButton TranseferToAnotherAccountCrossCurrency ;
+            private JButton TranseferToOwnAccountSameCurrency ;
+            private JButton TranseferToOwnAccountCrossCurrency ;
 
     public TransactionsForm() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,26 +39,54 @@ public class TransactionsForm extends JFrame
          panel.setSize(1500,500);
          panel.setLayout(new FlowLayout());
         
-        ttaas = new  JButton ("Transfer to another account same currency ");
-        ttaac = new  JButton ("Transfer to another account cross currency");
-        ttoas = new  JButton ("Transfer to own account same currency");
-        ttoac = new  JButton ("Transfer to own account cross currency");
+        TranseferToAnotherAccountSameCurrency = new  JButton ("Transfer to another account same currency ");
+       TranseferToAnotherAccountCrossCurrency = new  JButton ("Transfer to another account cross currency");
+        TranseferToOwnAccountSameCurrency= new  JButton ("Transfer to own account same currency");
+         TranseferToOwnAccountCrossCurrency = new  JButton ("Transfer to own account cross currency");
             
-        ttaas.setBounds(labelbounds);
-        ttaac.setBounds(labelbounds);
-        ttoas.setBounds(labelbounds);
-        ttoac.setBounds(labelbounds);
+        TranseferToAnotherAccountSameCurrency.setBounds(labelbounds);
+        TranseferToAnotherAccountCrossCurrency.setBounds(labelbounds);
+        TranseferToOwnAccountSameCurrency.setBounds(labelbounds);
+        TranseferToOwnAccountCrossCurrency.setBounds(labelbounds);
         
-        panel.add(ttaas);
-        panel.add(ttaac);
-        panel.add(ttoas);
-        panel.add(ttoac);
+        //lisnters
+        TranseferToAnotherAccountCrossCurrency.addActionListener(new ButtonWatcher());
+        
+        panel.add( TranseferToAnotherAccountSameCurrency );
+        panel.add( TranseferToAnotherAccountCrossCurrency);
+        panel.add(TranseferToOwnAccountSameCurrency);
+        panel.add(TranseferToOwnAccountCrossCurrency);
         add(panel);
         setVisible(true);
     
     }
             
-            
+            private class ButtonWatcher implements ActionListener
+            {
+                    
+                
+        public void actionPerformed(ActionEvent ae) {
+          Object ButtonPressed =  ae.getSource();
+            if(ButtonPressed.equals(TranseferToAnotherAccountCrossCurrency))
+            {
+                
+            }
+            else if (ButtonPressed.equals(TranseferToAnotherAccountSameCurrency))
+            {
+                
+            }
+            else if (ButtonPressed.equals(TranseferToOwnAccountCrossCurrency))
+            {
+                
+                
+            }
+            else if (ButtonPressed.equals(TranseferToOwnAccountSameCurrency))
+            {
+                
+            }
+        }
+                
+            }
         
     
 }
