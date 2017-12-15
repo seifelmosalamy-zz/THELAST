@@ -80,7 +80,8 @@ public class BankingSystemFinal implements Serializable{
         TransactionsForm transaction = new TransactionsForm ();
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
-            
+            Thread thread= new Thread(laf);
+            thread.start();
           
     }}
     
