@@ -22,7 +22,7 @@ import java.awt.event.ActionListener;
 
 public class LoansApplicationForm extends JFrame implements Serializable, Runnable{
     public static int ScoreSheetPoints;
-   
+   private ButtonGroup buttongp1 ;
      String fname = new String();
                      String lname = new String();
                      String email = new String();
@@ -157,6 +157,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
         setTitle("Loans Application Form");
                 setSize(1000,800);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        buttongp1= new ButtonGroup();
         jPanel1 = new JPanel();
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
@@ -271,6 +272,8 @@ jButton1.addActionListener(new ButtonSubmit());
     }
 
     private void addComp() {
+        buttongp1.add(jRadioButton1);
+        buttongp1.add(jRadioButton2);
         add(jPanel1);
         jPanel1.add(jLabel1);
         jPanel1.add(jLabel2);
