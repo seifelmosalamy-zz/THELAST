@@ -58,6 +58,7 @@ public class BankingSystemFinal implements Serializable{
         // TODO code application logic here
     //ReadFile R= new ReadFile();R.ReadFromFile(); to read from file 
         
+        
 
         SmartWalletForm smf = new SmartWalletForm();
         smf.setVisible(true);
@@ -80,7 +81,8 @@ public class BankingSystemFinal implements Serializable{
         TransactionsForm transaction = new TransactionsForm ();
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
-            
+            Thread thread  = new Thread(laf);
+            thread.start();
           
     }}
     
