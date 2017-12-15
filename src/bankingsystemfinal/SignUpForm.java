@@ -249,7 +249,12 @@ private JPanel panel = new JPanel();
                     int y =1;
                     
                   
-                        if(buttonpressed.equals(btnCustomer) )
+                        if(buttonpressed.equals(btnCustomer) && !jComboBox1.getSelectedItem().equals("Customer") )
+                        {
+                            
+                            JOptionPane.showMessageDialog(null, "Please Choose sign up as Customer first ");
+                            
+                        }
                         {
                             int u = 0;
                             while (u == 0){
@@ -262,7 +267,7 @@ private JPanel panel = new JPanel();
                           if(s.equals("1"))
                      {
                          a.setAccountCurrencyType("$");
-                                                  JOptionPane.showMessageDialog(null, "You choosed $ Account");
+                          JOptionPane.showMessageDialog(null, "You choosed $ Account");
                          y=2;
                      }
                      else if (s.equals("2"))
