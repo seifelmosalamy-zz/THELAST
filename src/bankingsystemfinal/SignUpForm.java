@@ -12,17 +12,15 @@ import static bankingsystemfinal.BankingSystemFinal.a;
 import static bankingsystemfinal.BankingSystemFinal.labelbounds;
 import static bankingsystemfinal.BankingSystemFinal.list1;
 import static bankingsystemfinal.BankingSystemFinal.textfieldbounds;
-import static bankingsystemfinal.BankingSystemFinal.x;
-import com.sun.org.apache.bcel.internal.generic.Select;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -151,16 +149,16 @@ public class SignUpForm extends JFrame
          jButton2.addActionListener(new ButtonWatcher());
          SaveButton.addActionListener(new ButtonWatcher());
          ReadButton.addActionListener(new ButtonWatcher());
-          jComboBox1.addActionListener(new ButtonWatcher());
-          btnCustomer.addActionListener(new ButtonWatcher());
-          jTextField1.addMouseListener(new MouseListner());
-          jTextField2.addMouseListener(new MouseListner());
-          jTextField3.addMouseListener(new MouseListner());
-          jTextField5.addMouseListener(new MouseListner());
-          jTextField6.addMouseListener(new MouseListner());
-          jTextField7.addMouseListener(new MouseListner());
-          jPasswordField1.addMouseListener(new MouseListner());
-          UserNameTextField.addMouseListener(new MouseListner());
+         jComboBox1.addActionListener(new ButtonWatcher());
+         btnCustomer.addActionListener(new ButtonWatcher());
+         jTextField1.addMouseListener(new MouseListner());
+         jTextField2.addMouseListener(new MouseListner());
+         jTextField3.addMouseListener(new MouseListner());
+         jTextField5.addMouseListener(new MouseListner());
+         jTextField6.addMouseListener(new MouseListner());
+         jTextField7.addMouseListener(new MouseListner());
+         jPasswordField1.addMouseListener(new MouseListner());
+         UserNameTextField.addMouseListener(new MouseListner());
           
 //Setting Bounds 
         jComboBox1.addItem("CustomerAgent");
