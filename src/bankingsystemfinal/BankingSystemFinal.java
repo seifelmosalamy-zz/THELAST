@@ -7,31 +7,24 @@ package bankingsystemfinal;
 
 
 
-import Staff.CustomerServiceAgentForm;
 import Staff.HrForm;
-import Staff.ManagerForm;
-import Staff.Teller;
-import Staff.TellerForm;
-import java.awt.FlowLayout;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
-import static java.lang.System.exit;
 import java.util.HashMap;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
+        import java.io.*;
+import javax.sound.sampled.*;
 /**
  *.
  * @author seifelmosalamy
@@ -57,6 +50,9 @@ public class BankingSystemFinal implements Serializable{
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         // TODO code application logic here
     //ReadFile R= new ReadFile();R.ReadFromFile(); to read from file 
+
+
+    
        try{
          ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
          list1=null;
@@ -118,6 +114,6 @@ try{
         tf.setVisible(true);
             Thread thread= new Thread(laf);
             thread.start();
-          
+          PlayMusic music = new PlayMusic();
     }}
     
