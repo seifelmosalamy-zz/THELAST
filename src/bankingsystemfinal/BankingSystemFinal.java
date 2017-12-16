@@ -7,7 +7,10 @@ package bankingsystemfinal;
 
 
 
+import Staff.CustomerServiceAgentForm;
 import Staff.HrForm;
+import Staff.ManagerForm;
+import Staff.TellerForm;
 
 import java.awt.Font;
 
@@ -92,18 +95,18 @@ try{
         rf.setVisible(true);
         StaffForm sf = new StaffForm();
         sf.setVisible(true);
-       // ManagerForm m = new ManagerForm();
-       // m.setVisible(true);
+        ManagerForm m = new ManagerForm();
+        m.setVisible(true);
         HrForm hr = new HrForm();
         hr.setVisible(true);
-       // TellerForm tl = new TellerForm();
-       // tl.setVisible(true);
+        TellerForm tl = new TellerForm();
+        tl.setVisible(true);
         LoansApplicationForm laf = new LoansApplicationForm();
         laf.setVisible(true);
-        //CustomerServiceAgentForm csaf = new CustomerServiceAgentForm();
-       // csaf.setVisible(true);
-        //SignUpForm suf = new SignUpForm();
-      //  suf.setVisible(true);
+        CustomerServiceAgentForm csaf = new CustomerServiceAgentForm();
+        csaf.setVisible(true);
+        SignUpForm suf = new SignUpForm();
+        suf.setVisible(true);
         TransactionsForm transaction = new TransactionsForm ();
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
