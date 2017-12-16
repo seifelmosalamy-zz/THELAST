@@ -56,7 +56,7 @@ public class LoginForm extends JFrame implements Serializable{
     
     
     private void initComponents() {
-         setSize(1000,700);
+         setSize(500   ,500);
        setTitle("Login");
        
         jPanel1 = new JPanel();
@@ -83,7 +83,7 @@ public class LoginForm extends JFrame implements Serializable{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
        //set bounds
-        jLabel1.setBounds(250,10,50,30);
+        jLabel1.setBounds(150,10,50,30);
         jLabel1.setForeground(Color.white);
         jLabel2.setBounds(10,40,80,50);
         jLabel2.setForeground(Color.white);
@@ -122,10 +122,13 @@ public class LoginForm extends JFrame implements Serializable{
     
     private class MouseListner implements MouseListener
     {
+        Object b=  new Object();
          @Override
         public void mouseClicked(MouseEvent me) {
-          
+          b = me.getSource();
+          if(b.equals(jTextField1))
             jTextField1.setText("");
+          if(b.equals(jPasswordField1))
             jPasswordField1.setText(""); 
         }
 

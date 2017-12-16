@@ -8,6 +8,7 @@ package bankingsystemfinal;
 import Staff.LoanOfficerForm;
 import static bankingsystemfinal.BankingSystemFinal.LoansApplicationList;
 import static bankingsystemfinal.BankingSystemFinal.ob;
+import static bankingsystemfinal.BankingSystemFinal.font;
 import java.io.Serializable;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -155,7 +156,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
     }
     private void initComp() {
         setTitle("Loans Application Form");
-                setSize(1000,800);
+                setSize(600,700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         buttongp1= new ButtonGroup();
         jPanel1 = new JPanel();
@@ -198,15 +199,18 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
         
         jLabel1.setText("Loans Application");
         
+        jLabel1.setFont(font);
         jLabel2.setText("First Name:");
+        jLabel2.setFont(font);
         jLabel3.setText("Last Name:");
+        jLabel3.setFont(font);
         jLabel4.setText("Email:");
         jLabel5.setText("Address:");
         jLabel6.setText("Gender:");
         jLabel7.setText("Mobile Number:");
         jLabel8.setText("Salary");
         
-        jLabel1.setBounds(300, 0, 120, 50);
+        jLabel1.setBounds(200, 0, 120, 50);
         jLabel2.setBounds(0, 50, 100, 30);
         jLabel3.setBounds(0,100,100,30);
         jLabel4.setBounds(0,150,100,30);
