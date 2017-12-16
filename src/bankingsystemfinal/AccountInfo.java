@@ -1,5 +1,7 @@
 package bankingsystemfinal; 
+import static bankingsystemfinal.BankingSystemFinal.x;
 import java.io.Serializable;
+import javax.swing.JTextField;
 public class AccountInfo  implements Serializable 
 { 
 
@@ -28,6 +30,30 @@ public class AccountInfo  implements Serializable
 
     public String getUserName() {
         return UserName;
+    }
+    public void searchForTwoAccounts(String sourcecurrency ,String sourcecurrency2 , JTextField text , JTextField text2 ) 
+    {
+        
+              String us =text.getText(); 
+              String us2 =text2.getText();
+          try
+                       {
+                           for (AccountInfo searchitem : x){
+  
+                if (searchitem.getUserName().equals(us)){
+                 
+                     sourcecurrency = searchitem.getAccountCurrencyType();}
+                if (searchitem.getUserName().equals(us2)){
+                   
+                         sourcecurrency2 = searchitem.getAccountCurrencyType();
+                    }
+                    
+                   
+                        
+                
+                }}catch(Exception n){
+                   
+                }
     }
 
     public void setUserName(String UserName)  {

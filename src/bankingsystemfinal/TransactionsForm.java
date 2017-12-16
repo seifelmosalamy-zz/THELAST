@@ -5,6 +5,7 @@
  */
 package bankingsystemfinal;
 
+import static bankingsystemfinal.BankingSystemFinal.a;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -86,29 +87,12 @@ public class TransactionsForm extends JFrame
           Object ButtonPressed =  ae.getSource();
           if(ButtonPressed.equals(Transefer))
           {
-              String us =text1.getText();
-              String us2 =text2.getText();
-              String sourcecurrency2="";
-              String sourcecurrency="";
-                     try
-                       {
-                           for (AccountInfo searchitem : x){
-  
-                if (searchitem.getUserName().equals(us)){
-                 
-                     sourcecurrency = searchitem.getAccountCurrencyType();}
-                if (searchitem.getUserName().equals(us2)){
-                   
-                         sourcecurrency2 = searchitem.getAccountCurrencyType();
-                    }
-                    
-                   
-                        
-                
-                }}catch(Exception n){
-                   
-                }
-                     if(!sourcecurrency.equals(sourcecurrency2)&& !sourcecurrency.equals("") && !sourcecurrency2.equals("")){
+              String sourceCurrency  = "";
+              String sourceCurrency2  = "";
+           a.searchForTwoAccounts(sourceCurrency, sourceCurrency2, text1,text2);
+              
+              
+                     if(!sourceCurrency.equals(sourceCurrency2)&& !sourceCurrency.equals("") && !sourceCurrency2.equals("")){
                      JOptionPane.showMessageDialog(null, "Transfer Done");
                      }
                      else{JOptionPane.showMessageDialog(null, "Cannot be Transfered or Not Found ");}
