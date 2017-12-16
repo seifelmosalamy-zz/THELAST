@@ -109,8 +109,7 @@ try{
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
         tf.setVisible(true);
-            Thread thread= new Thread(laf);
-            thread.start();
+           
           //PlayMusic music = new PlayMusic();
     }}
     
