@@ -17,7 +17,7 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
-/*
+
 public class Sound implements Runnable 
 {
 
@@ -87,4 +87,4 @@ public class Sound implements Runnable
         line.drain();
         line.close();
     }
-}*/
+}

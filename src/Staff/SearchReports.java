@@ -5,11 +5,31 @@
  */
 package Staff;
 
+import bankingsystemfinal.AccountInfo;
+import bankingsystemfinal.LoansApplicationForm;
+import java.util.ArrayList;
+
 /**
  *
  * @author Mohamed
  */
 public abstract class SearchReports {
+     
     
+    public abstract int SearchLoans(String currItem, ArrayList<LoansApplicationForm> LoansApplicationList);
+     public void Search(String currItem, ArrayList<AccountInfo> acc){
+    //el implementation da el mafrod nest3amlo fi search 3al accountinfo wel report mafihash search 3al accountinfo
+        int ctr=0;        
+        for(AccountInfo i:acc)
+        {
+        if(currItem.equals(i.getGender()))
+        {
+        ctr++;
+        }
+        
+        
+    }
+        System.out.println("SearchItem "+ctr);
     
+}
 }

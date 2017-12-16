@@ -1,30 +1,21 @@
 package bankingsystemfinal;
 
+import Staff.SearchReports;
 import static bankingsystemfinal.BankingSystemFinal.LoansApplicationList;
 import bankingsystemfinal.Interfaces.IReport;
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Reports implements IReport , Serializable {
+public class Reports extends SearchReports implements IReport , Serializable {
 
-    public void GenderReport() {
-        String MaleSearch="Male";
-        String FemaleSearch="Female";
-        int ctrMale=0;
-        int ctrFemale=0;
+    public void GenderReport() { 
+        //calculate Female and male then we can add them
+        int ctrm,ctrf,ctrt;
         
-        for(LoansApplicationForm i:LoansApplicationList)
-        {
-        if(MaleSearch.equals(i.gender))
-        {
-        ctrMale++;
-        
-        }
-        if(FemaleSearch.equals(i.gender))
-        {
-        ctrFemale++;
-        
-    }
-        }
+        ctrf= SearchLoans("Female",LoansApplicationList);
+        ctrm=SearchLoans("Male",LoansApplicationList);
+    ctrt=ctrf+ctrm; //Female+Male
+    //lw 3aiz a7seb el gender fi ba2y el arraylist use Search() method
     }
     public void TransactionsReport() {
     }
@@ -33,11 +24,23 @@ public class Reports implements IReport , Serializable {
     }
 
     public void LoansReport() {
+        LoansApplicationList.size();
     }
 
     public void EmployeeReport() {
         
     }
-
+public int SearchLoans(String currItem, ArrayList<LoansApplicationForm> LoansApplicationList){
+        
+        int ctr=0;        
+        for(LoansApplicationForm i:LoansApplicationList)
+        {
+        if(currItem.equals(i.getGender()))
+        {
+        ctr++;
+        }
+        }
+    return ctr;
+        }
  
 }
