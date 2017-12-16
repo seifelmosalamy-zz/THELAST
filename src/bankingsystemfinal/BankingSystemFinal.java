@@ -59,7 +59,8 @@ public class BankingSystemFinal implements Serializable{
     //ReadFile R= new ReadFile();R.ReadFromFile(); to read from file 
        try{
          ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
-         x= (ArrayList< AccountInfo>)inp.readObject();
+         list1=null;
+         list1= (ArrayList< AccountInfo>)inp.readObject();
          inp.close();
         }catch(Exception c){
             

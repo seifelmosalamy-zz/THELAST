@@ -262,21 +262,19 @@ public class SignUpForm extends JFrame
                         if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString().equals("Customer") )
                         {
                             
-                        
-                       
-               
-               
                           String s =JOptionPane.showInputDialog(null,"Do you want to open a $ account or an EGP\n for Dollar Press (1) \n For EGP press (2)");
                    
                           if(s.equals("1"))
                      {
                          a.setAccountCurrencyType("$");
+                       
                           JOptionPane.showMessageDialog(null, "You choosed $ Account");
                          
                      }
                      else if (s.equals("2"))
                      {      
                          a.setAccountCurrencyType("EGP");  
+                         
                          JOptionPane.showMessageDialog(null, "You choosed EGP Account");
                          
                      }
@@ -294,7 +292,9 @@ public class SignUpForm extends JFrame
                                 a.setGender("Female");
                                           
                         String U = UserNameTextField.getText();
-                       try{ for (AccountInfo searchitem : x){
+                       try
+                       {
+                           for (AccountInfo searchitem : list1){
   
                 if (searchitem.getUserName().equals(U)){
                     U="found";
@@ -412,9 +412,9 @@ public class SignUpForm extends JFrame
                 else if ( buttonpressed.equals(ReadButton))
                 {
                       try{
-         ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
-         x= (ArrayList< AccountInfo>)inp.readObject();
-         
+         ObjectInputStream inp1 = new ObjectInputStream(new FileInputStream("Customer.txt"));
+         list1= (ArrayList< AccountInfo>)inp1.readObject();
+         inp1.close();
         }catch(Exception c){
             exit(0);
             }

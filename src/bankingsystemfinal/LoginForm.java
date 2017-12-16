@@ -162,7 +162,7 @@ public class LoginForm extends JFrame implements Serializable{
                   } 
                   if(found==hashpw.length){
                   
-                  JOptionPane.showMessageDialog(null, "Valid");
+                  JOptionPane.showMessageDialog(null, "Welcome "+UN);
                   if(type.equals("CustomerAgent")){
                   csa.setVisible(true);
                       setVisible(false);}
