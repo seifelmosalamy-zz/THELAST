@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 /**
@@ -66,8 +68,8 @@ public class LoginForm extends JFrame implements Serializable{
         jLabel2 = new JLabel("User Name");
         jLabel3 = new JLabel("Password");
         jLabel4 = new JLabel("Login as ");
-        jTextField1 = new JTextField();
-        jPasswordField1 = new JPasswordField();
+        jTextField1 = new JTextField("Enter Username");
+        jPasswordField1 = new JPasswordField("Enter password");
         jButton1 = new JButton("SignIn");
         jButton2 = new JButton("SignUp");
         jComboBox1 = new JComboBox ();
@@ -77,7 +79,7 @@ public class LoginForm extends JFrame implements Serializable{
         jComboBox1.addItem("LoanOfficer");
         jComboBox1.addItem("Customer");
         jComboBox1.setBounds(80,140,120,25);
-        
+      
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
        //set bounds
@@ -114,8 +116,41 @@ public class LoginForm extends JFrame implements Serializable{
              jPanel1.add(jLabel4);
              jButton1.addActionListener(new ButtonWatcher());
              jButton2.addActionListener(new ButtonWatcher());
+             jTextField1.addMouseListener(new MouseListner());
+               jPasswordField1.addMouseListener(new MouseListner());
     }
     
+    private class MouseListner implements MouseListener
+    {
+         @Override
+        public void mouseClicked(MouseEvent me) {
+          
+            jTextField1.setText("");
+            jPasswordField1.setText(""); 
+        }
+
+        @Override
+        public void mousePressed(MouseEvent me) {
+         
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent me) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent me) {
+           
+              
+        }
+        
+
+        @Override
+        public void mouseExited(MouseEvent me) {
+            
+            
+        }
+    }
         private class ButtonWatcher implements ActionListener 
   {
 
@@ -200,6 +235,8 @@ public class LoginForm extends JFrame implements Serializable{
                     setVisible(false);
                 }
                 }
+
+       
                 }
                 
                 }

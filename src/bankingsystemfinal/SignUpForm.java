@@ -20,6 +20,9 @@ import java.awt.GridLayout;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -150,7 +153,16 @@ public class SignUpForm extends JFrame
          ReadButton.addActionListener(new ButtonWatcher());
           jComboBox1.addActionListener(new ButtonWatcher());
           btnCustomer.addActionListener(new ButtonWatcher());
-        //Setting Bounds 
+          jTextField1.addMouseListener(new MouseListner());
+          jTextField2.addMouseListener(new MouseListner());
+          jTextField3.addMouseListener(new MouseListner());
+          jTextField5.addMouseListener(new MouseListner());
+          jTextField6.addMouseListener(new MouseListner());
+          jTextField7.addMouseListener(new MouseListner());
+          jPasswordField1.addMouseListener(new MouseListner());
+          UserNameTextField.addMouseListener(new MouseListner());
+          
+//Setting Bounds 
         jComboBox1.addItem("CustomerAgent");
         jComboBox1.addItem("Teller");
         jComboBox1.addItem("Manager");
@@ -423,4 +435,23 @@ public class SignUpForm extends JFrame
                 }
                 }
                 
-  }
+ 
+
+   private class MouseListner extends MouseAdapter
+    {
+       Object press = new Object();
+        public void mouseClicked(MouseEvent me) {
+           press = me.getSource();
+            if(press.equals(jTextField1)){ jTextField1.setText("");}
+            if(press.equals(jPasswordField1))jPasswordField1.setText("");
+            if(press.equals(jTextField2)){jTextField2.setText("");}
+            if(press.equals(jTextField3)) jTextField3.setText("");
+            if(press.equals(jTextField6))jTextField6.setText("");
+            if(press.equals(jTextField5))jTextField5.setText("");
+            if(press.equals(jTextField7))jTextField7.setText("");
+            if(press.equals(UserNameTextField))UserNameTextField.setText("");
+        
+        }
+
+     
+    }}
