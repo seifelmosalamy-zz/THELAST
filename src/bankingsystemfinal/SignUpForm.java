@@ -72,7 +72,6 @@ public class SignUpForm extends JFrame
     private JRadioButton jRadioButton1;
     private JRadioButton jRadioButton2;
     private ButtonGroup buttongp1;
-private int y =1;
     private JButton btnCustomer ;
      private  JComboBox comboCustomer = new JComboBox<>();
   private JPanel panel = new JPanel();
@@ -256,37 +255,37 @@ private int y =1;
                 public void actionPerformed(ActionEvent e) {
                     Object buttonpressed = e.getSource();
                     
-                     if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString() !="Customer" ){
+               if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString() !="Customer" ){
                      JOptionPane.showMessageDialog(null,"Please Select customer first");
                      }
                   
-                        if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString() =="Customer" )
+                        if(buttonpressed.equals(btnCustomer) && jComboBox1.getSelectedItem().toString().equals("Customer") )
                         {
                             
                         
                        
-                   do{
-                   {
+               
+               
                           String s =JOptionPane.showInputDialog(null,"Do you want to open a $ account or an EGP\n for Dollar Press (1) \n For EGP press (2)");
                    
                           if(s.equals("1"))
                      {
                          a.setAccountCurrencyType("$");
                           JOptionPane.showMessageDialog(null, "You choosed $ Account");
-                         y=2;
+                         
                      }
                      else if (s.equals("2"))
                      {      
                          a.setAccountCurrencyType("EGP");  
                          JOptionPane.showMessageDialog(null, "You choosed EGP Account");
-                         y=2;
+                         
                      }
                      else {
                          JOptionPane.showMessageDialog(null, "Enter Correct Number");
                      }
                      }
-                         }while(y ==1);
-                          
+                         
+                        
                             
                     if (buttonpressed.equals(jButton1)){
                         if(buttonpressed.equals(jRadioButton1))
@@ -423,4 +422,4 @@ private int y =1;
                 }
                 }
                 
-  }}
+  }
