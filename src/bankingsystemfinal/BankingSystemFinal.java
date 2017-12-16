@@ -8,16 +8,11 @@ package bankingsystemfinal;
 
 
 import Staff.HrForm;
-<<<<<<< HEAD
-import Staff.ManagerForm;
-import Staff.Teller;
-import Staff.TellerForm;
-import java.awt.FlowLayout;
+
 import java.awt.Font;
-=======
->>>>>>> 98b0ea4c0a2585021707f1351b112f8860282a03
+
+
 import java.awt.Rectangle;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,14 +20,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
-
-        import java.io.*;
-import javax.sound.sampled.*;
 /**
  *.
  * @author seifelmosalamy
