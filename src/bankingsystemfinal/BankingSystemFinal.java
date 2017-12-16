@@ -114,6 +114,6 @@ try{
         tf.setVisible(true);
             Thread thread= new Thread(laf);
             thread.start();
-          PlayMusic music = new PlayMusic();
+          //PlayMusic music = new PlayMusic();
     }}
     
