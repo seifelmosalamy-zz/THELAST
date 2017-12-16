@@ -406,7 +406,8 @@ public class SignUpForm extends JFrame
             ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream(type+".txt"));
             ob.writeObject(choosen);
             ob.close();      
-              } catch (IOException ex) {}
+              } catch (IOException ex) {
+              JOptionPane.showMessageDialog(null, "Error in save");}
         
                 }
                 else if ( buttonpressed.equals(ReadButton))
