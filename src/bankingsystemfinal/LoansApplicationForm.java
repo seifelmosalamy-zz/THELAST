@@ -24,12 +24,12 @@ import java.awt.event.ActionListener;
 public class LoansApplicationForm extends JFrame implements Serializable, Runnable{
     public static int ScoreSheetPoints;
    private ButtonGroup buttongp1 ;
-     String fname = new String();
-                     String lname = new String();
-                     String email = new String();
-                     String address = new String();
-                     String gender = new String();
-                     String MobileNumber = new String();
+                     String fname;
+                     String lname ;
+                     String email ;
+                     String address ;
+                     String gender;
+                     String MobileNumber;
     LoansApplicationForm()
     {                
         
@@ -57,10 +57,10 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                       
             if(buttonpressed.equals(jRadioButton1))
 
-            { gender = "Male";
+            { ob.gender = "Male";
   
             
-            }else{gender = "Female";}
+            }else {ob.gender = "Female";}
             
                      MobileNumber = jTextField5.getText();
                      String combo1 = jComboBox1.getSelectedItem().toString();
@@ -151,7 +151,8 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      JOptionPane.showMessageDialog(null,"Disapproved");
                  }
                 }    
-                    
+       Reports report= new Reports();
+       report.GenderReport();
     }
     }
     private void initComp() {
