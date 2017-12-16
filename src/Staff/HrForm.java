@@ -1,6 +1,9 @@
 package Staff;
 
+import bankingsystemfinal.SignUpForm;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
 import javax.swing.*;
 
@@ -86,6 +89,7 @@ public class HrForm extends JFrame implements Serializable{
 
         jButton2.setBounds(270,200,110,25);
         jButton2.setText("SignUp");
+        jButton2.addActionListener(new ButtonWatcher());
         
              add(jPanel1);
              jPanel1.add(jButton1);
@@ -101,6 +105,19 @@ public class HrForm extends JFrame implements Serializable{
    }
             
     
-    
+    private class ButtonWatcher implements ActionListener 
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+        SignUpForm s = new SignUpForm();
+        Object b= ae.getSource();
+        if (b.equals(jButton2))
+            
+            s.setVisible(true);
+        
+        }
+        
+    }
     
 }

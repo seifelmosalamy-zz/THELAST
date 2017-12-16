@@ -13,6 +13,7 @@ import Staff.ManagerForm;
 import Staff.Teller;
 import Staff.TellerForm;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,7 +42,9 @@ public class BankingSystemFinal implements Serializable{
     /**
      * @throws java.io.FileNotFoundException
      * 
-     */  public static HashMap<String,char[]> hm=new HashMap<String,char[]>();
+     */
+    public static Font font = new Font("Gadugi", Font.BOLD, 12);
+    public static HashMap<String,char[]> hm=new HashMap<String,char[]>();
           public static   Rectangle labelbounds = new Rectangle(0,0,100,50);
     public static Rectangle textfieldbounds = new Rectangle(0,0,200, 30);
      public static ArrayList<AccountInfo> x = new ArrayList< AccountInfo>();

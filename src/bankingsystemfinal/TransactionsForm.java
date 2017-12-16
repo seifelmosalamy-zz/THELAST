@@ -41,16 +41,16 @@ public class TransactionsForm extends JFrame
             
 
     public TransactionsForm() {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1500,500);
-        setLayout(null);
-       
+     
+        setSize(400,400);
+        setTitle("Transactions Form");
+        setLayout(new FlowLayout());
+        setBackground(Color.yellow);
         JPanel panel = new JPanel ();
-         panel.setBackground(new Color(36 , 63 , 50));
-         panel.setSize(1500,500);
+       
          panel.setLayout(new FlowLayout());
          jf=new JFrame("Transfers");
-         jf.setSize(500,500);
+         jf.setSize(400,400);
         
         TranseferToAnotherAccountSameCurrency = new  JButton ("Transfer to another account same currency ");
        TranseferToAnotherAccountCrossCurrency = new  JButton ("Transfer to another account cross currency");
@@ -61,7 +61,7 @@ public class TransactionsForm extends JFrame
          Transefer.setBounds(labelbounds);
          Transefer.addActionListener(new ButtonWatcher());
             text2 = new JTextField("Enter second user here");
-            lbl2 = new JLabel("Please Select a source Account");
+            lbl2 = new JLabel("Please Select Destination Account");
         TranseferToAnotherAccountSameCurrency.setBounds(labelbounds);
         TranseferToAnotherAccountCrossCurrency.setBounds(labelbounds);
         TranseferToOwnAccountSameCurrency.setBounds(labelbounds);
@@ -70,12 +70,12 @@ public class TransactionsForm extends JFrame
         //lisnters
         TranseferToAnotherAccountCrossCurrency.addActionListener(new ButtonWatcher());
         
-        panel.add( TranseferToAnotherAccountSameCurrency );
-        panel.add( TranseferToAnotherAccountCrossCurrency);
-        panel.add(TranseferToOwnAccountSameCurrency);
-        panel.add(TranseferToOwnAccountCrossCurrency);
-        add(panel);
-        setVisible(true);
+       add( TranseferToAnotherAccountSameCurrency );
+       add( TranseferToAnotherAccountCrossCurrency);
+       add(TranseferToOwnAccountSameCurrency);
+       add(TranseferToOwnAccountCrossCurrency);
+    
+       
     
     }
             
