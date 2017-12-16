@@ -11,18 +11,18 @@ public class Reports implements IReport , Serializable {
         String FemaleSearch="Female";
         int ctrMale=0;
         int ctrFemale=0;
-        System.out.println(LoansApplicationList.get(0).gender);
+        
         for(LoansApplicationForm i:LoansApplicationList)
         {
         if(MaleSearch.equals(i.gender))
         {
         ctrMale++;
-        System.out.println("Male:"+ctrMale);
+        
         }
         if(FemaleSearch.equals(i.gender))
         {
         ctrFemale++;
-        System.out.println("Female:"+ctrFemale);
+        
     }
         }
     }
@@ -36,6 +36,7 @@ public class Reports implements IReport , Serializable {
     }
 
     public void EmployeeReport() {
+        
     }
 
  

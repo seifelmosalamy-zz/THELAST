@@ -9,6 +9,7 @@ package Staff;
  *
  * @author Mohamed
  */
-public class SearchReports {
+public abstract class SearchReports {
+    
     
 }

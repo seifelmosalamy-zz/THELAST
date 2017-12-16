@@ -62,7 +62,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
             
             }else {ob.gender = "Female";}
             
-                     MobileNumber = jTextField5.getText();
+                     ob.MobileNumber = jTextField5.getText();
                      String combo1 = jComboBox1.getSelectedItem().toString();
                      
                      if(combo1.equals("El-Zamalek")){
@@ -151,8 +151,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      JOptionPane.showMessageDialog(null,"Disapproved");
                  }
                 }    
-       Reports report= new Reports();
-       report.GenderReport();
+       
     }
     }
     private void initComp() {
