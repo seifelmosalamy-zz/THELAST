@@ -38,13 +38,14 @@ public class BankingSystemFinal implements Serializable{
           public static   Rectangle labelbounds = new Rectangle(0,0,100,50);
     public static Rectangle textfieldbounds = new Rectangle(0,0,200, 30);
      public static ArrayList<AccountInfo> x = new ArrayList< AccountInfo>();
-  public static ArrayList<AccountInfo> list1= new ArrayList<AccountInfo>(3);
+  public static ArrayList<AccountInfo> CustomerList= new ArrayList<AccountInfo>(3);
   public static ArrayList<LoansApplicationForm> LoansApplicationList= new ArrayList<LoansApplicationForm>(3);
   public static ArrayList<AccountInfo> CustomerAgentList= new ArrayList<AccountInfo>(3);
    public static ArrayList<AccountInfo> HrList = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> Teller = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> Manager = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> LoanOfficer = new ArrayList< AccountInfo>();
+   public static ArrayList<AccountInfo> AllLists = new ArrayList <AccountInfo>();
    public static     LoansApplicationForm ob = new LoansApplicationForm();
    public static AccountInfo a = new AccountInfo();
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -55,8 +56,8 @@ public class BankingSystemFinal implements Serializable{
     
        try{
          ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
-         list1=null;
-         list1= (ArrayList< AccountInfo>)inp.readObject();
+         CustomerList=null;
+         CustomerList= (ArrayList< AccountInfo>)inp.readObject();
          inp.close();
         }catch(Exception c){
             
@@ -89,6 +90,14 @@ try{
         }catch(Exception c){
             
             }
+
+           FillArrayListAll fill = new FillArrayListAll();
+           fill.fillarray(CustomerList);
+           fill.fillarray(HrList);
+           fill.fillarray(Teller);
+           fill.fillarray(Manager);
+           fill.fillarray(CustomerAgentList);
+           fill.fillarray(LoanOfficer);
         SmartWalletForm smf = new SmartWalletForm();
         smf.setVisible(true);
         ReportsForm rf = new ReportsForm();

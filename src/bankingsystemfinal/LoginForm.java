@@ -11,7 +11,7 @@ import static bankingsystemfinal.BankingSystemFinal.Teller;
 import static bankingsystemfinal.BankingSystemFinal.labelbounds;
 import static bankingsystemfinal.BankingSystemFinal.a;
 import static bankingsystemfinal.BankingSystemFinal.hm;
-import static bankingsystemfinal.BankingSystemFinal.list1;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import static bankingsystemfinal.BankingSystemFinal.textfieldbounds;
 import static bankingsystemfinal.BankingSystemFinal.x;
 import javax.swing.*;
@@ -174,7 +174,7 @@ public class LoginForm extends JFrame implements Serializable{
                     else if(type.equals("LoanOfficer"))
                         choosen1=LoanOfficer;
                     else if(type.equals("Customer"))
-                        choosen1=list1;
+                        choosen1=CustomerList;
                for (AccountInfo HashMapItem : choosen1){
                hm.put(HashMapItem.getUserName(), HashMapItem.getPassword());
                }

@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import static bankingsystemfinal.BankingSystemFinal.labelbounds;
-import static bankingsystemfinal.BankingSystemFinal.list1;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import static bankingsystemfinal.BankingSystemFinal.textfieldbounds;
 import static bankingsystemfinal.BankingSystemFinal.x;
 import java.awt.Color;

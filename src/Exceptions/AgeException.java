@@ -16,7 +16,14 @@ public class AgeException extends Exception{
     public AgeException() 
     {
         super();
-        JOptionPane.showMessageDialog(null, "Please enter valid age");
+         JOptionPane.showMessageDialog(null, "Please enter valid age");
+        
+    }
+
+    public AgeException(String message) {
+        super(message);
+         JOptionPane.showMessageDialog(null, "Please enter valid age");
+        
         
     }
 

@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package bankingsystemfinal;
+import Exceptions.AgeException;
 import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
 import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
 import static bankingsystemfinal.BankingSystemFinal.Manager;
 import static bankingsystemfinal.BankingSystemFinal.Teller;
 import static bankingsystemfinal.BankingSystemFinal.a;
 import static bankingsystemfinal.BankingSystemFinal.labelbounds;
-import static bankingsystemfinal.BankingSystemFinal.list1;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import static bankingsystemfinal.BankingSystemFinal.textfieldbounds;
 
 import java.awt.Color;
@@ -304,7 +305,7 @@ public class SignUpForm extends JFrame
                         String U = UserNameTextField.getText();
                        try
                        {
-                           for (AccountInfo searchitem : list1){
+                           for (AccountInfo searchitem : CustomerList){
   
                 if (searchitem.getUserName().equals(U)){
                     U="found";
@@ -364,6 +365,10 @@ public class SignUpForm extends JFrame
 
             if(a.getAge() == 0 )
             {
+                 
+                
+                
+                
             String error="Enter Valid Age";
             jLabel10.setText(error);
 
@@ -410,7 +415,7 @@ public class SignUpForm extends JFrame
                         choosen=LoanOfficer;
                     else if(type.equals("Customer"))
                         
-                        choosen=list1;
+                        choosen=CustomerList;
                      try {
             choosen.add(a);
             ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream(type+".txt"));
@@ -424,7 +429,7 @@ public class SignUpForm extends JFrame
                 {
                       try{
          ObjectInputStream inp1 = new ObjectInputStream(new FileInputStream("Customer.txt"));
-         list1= (ArrayList< AccountInfo>)inp1.readObject();
+         CustomerList= (ArrayList< AccountInfo>)inp1.readObject();
          inp1.close();
         }catch(Exception c){
             exit(0);
