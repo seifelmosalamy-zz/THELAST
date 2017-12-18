@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  *
  * @author Seif Elmosalamy
  */
-public class GraphicsClass extends JPanel 
+public class GraphicsClass extends JPanel implements Runnable 
 {
 
     public GraphicsClass() 
@@ -42,5 +42,30 @@ public void paintComponent(Graphics g)
     g.fillRect(500 ,500-(ctrf + 50) , 60, 1000);
      
 }
+
+    public void run ()
+    {
+           GraphicsClass graphics = new GraphicsClass();
+        JFrame jf = new JFrame();
+        JFrame jf2 = new JFrame();
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        jf.setSize(1000,1000);
+        jf.setTitle("Painting Statistics");
+    
+        jf.add(graphics);
+        
+        PaintingForWorkers pfw=new PaintingForWorkers();
+        jf.setVisible(true);
+        jf2.setSize(1000,1000);
+        jf2.setTitle("Painting Statistics");
+        jf2.add(pfw);
+        repaint ();
+        jf2.setVisible(true);
+        
+        
+    }
+            
+            
+        
 }
 
