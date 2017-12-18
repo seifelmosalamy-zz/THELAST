@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.Serializable;
 import static bankingsystemfinal.BankingSystemFinal.x;
 import static bankingsystemfinal.BankingSystemFinal.a;
-import static bankingsystemfinal.BankingSystemFinal.list1;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import javax.swing.*;
 
 /**

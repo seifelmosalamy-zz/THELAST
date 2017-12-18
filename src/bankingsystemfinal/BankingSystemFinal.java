@@ -39,13 +39,14 @@ public class BankingSystemFinal implements Serializable {
           public static   Rectangle labelbounds = new Rectangle(0,0,100,50);
     public static Rectangle textfieldbounds = new Rectangle(0,0,200, 30);
      public static ArrayList<AccountInfo> x = new ArrayList< AccountInfo>();
-  public static ArrayList<AccountInfo> list1= new ArrayList<AccountInfo>(3);
+  public static ArrayList<AccountInfo> CustomerList= new ArrayList<AccountInfo>(3);
   public static ArrayList<LoansApplicationForm> LoansApplicationList= new ArrayList<LoansApplicationForm>(3);
   public static ArrayList<AccountInfo> CustomerAgentList= new ArrayList<AccountInfo>(3);
    public static ArrayList<AccountInfo> HrList = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> Teller = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> Manager = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> LoanOfficer = new ArrayList< AccountInfo>();
+   public static ArrayList<AccountInfo> AllLists = new ArrayList <AccountInfo>();
    public static     LoansApplicationForm ob = new LoansApplicationForm();
     public static ArrayList<String> Scrabbinglist = new ArrayList<String>();
 
@@ -56,7 +57,54 @@ public class BankingSystemFinal implements Serializable {
 
 
     
+<<<<<<< HEAD
         ReadFromFile ReadAllFiles = new ReadFromFile();
+=======
+       try{
+         ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
+         CustomerList=null;
+         CustomerList= (ArrayList< AccountInfo>)inp.readObject();
+         inp.close();
+        }catch(Exception c){
+            
+            }
+try{
+         ObjectInputStream inp2 = new ObjectInputStream(new FileInputStream("CustomerAgent.txt"));
+         CustomerAgentList= (ArrayList< AccountInfo>)inp2.readObject();
+         inp2.close();
+        }catch(Exception c){
+            
+            }
+try{
+         ObjectInputStream inp3 = new ObjectInputStream(new FileInputStream("Teller.txt"));
+         Teller= (ArrayList< AccountInfo>)inp3.readObject();
+         inp3.close();
+        }catch(Exception c){
+            
+            }
+try{
+         ObjectInputStream inp4 = new ObjectInputStream(new FileInputStream("Manager.txt"));
+         Manager= (ArrayList< AccountInfo>)inp4.readObject();
+         inp4.close();
+        }catch(Exception c){
+            
+            }
+try{
+         ObjectInputStream inp5 = new ObjectInputStream(new FileInputStream("LoanOfficer.txt"));
+         LoanOfficer= (ArrayList< AccountInfo>)inp5.readObject();
+         inp5.close();
+        }catch(Exception c){
+            
+            }
+
+           FillArrayListAll fill = new FillArrayListAll();
+           fill.fillarray(CustomerList);
+           fill.fillarray(HrList);
+           fill.fillarray(Teller);
+           fill.fillarray(Manager);
+           fill.fillarray(CustomerAgentList);
+           fill.fillarray(LoanOfficer);
+>>>>>>> e9c7fbd4f5719ba606e93294e929185f2a14a231
         SmartWalletForm smf = new SmartWalletForm();
         smf.setVisible(true);
         ReportsForm rf = new ReportsForm();
@@ -79,8 +127,15 @@ public class BankingSystemFinal implements Serializable {
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
+<<<<<<< HEAD
         tf.setVisible(true);   
         CurrencyScrabbing cs  = new CurrencyScrabbing();
           //PlayMusic music = new PlayMusic();
+=======
+        tf.setVisible(true);
+           
+//          Sound music = new Sound();
+//          music.play();
+>>>>>>> e9c7fbd4f5719ba606e93294e929185f2a14a231
     }}
     

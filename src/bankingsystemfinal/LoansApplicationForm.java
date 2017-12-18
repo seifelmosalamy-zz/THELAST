@@ -24,12 +24,56 @@ import java.awt.event.ActionListener;
 public class LoansApplicationForm extends JFrame implements Serializable, Runnable{
     public static int ScoreSheetPoints;
    private ButtonGroup buttongp1 ;
-                     String fname;
-                     String lname ;
-                     String email ;
-                     String address ;
-                     String gender;
-                     String MobileNumber;
+                private     String fname;
+                private     String lname ;
+                private     String email ;
+                private     String address ;
+                private    String gender;
+                private     String MobileNumber;
+
+    public String getLname() {
+        return lname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getMobileNumber() {
+        return MobileNumber;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setMobileNumber(String MobileNumber) {
+        this.MobileNumber = MobileNumber;
+    }
     LoansApplicationForm()
     {                
         
@@ -55,12 +99,12 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                       email = jTextField3.getText();
                       address = jTextField5.getText();
                       
-            if(buttonpressed.equals(jRadioButton1))
+            if(jRadioButton1.isSelected())
 
             { ob.gender = "Male";
   
             
-            }else {ob.gender = "Female";}
+            }else if(jRadioButton2.isSelected()) {ob.gender = "Female";}
             
                      ob.MobileNumber = jTextField5.getText();
                      String combo1 = jComboBox1.getSelectedItem().toString();
@@ -151,7 +195,8 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      JOptionPane.showMessageDialog(null,"Disapproved");
                  }
                 }    
-       
+     Reports report = new Reports();
+     report.GenderReport();
     }
     }
     private void initComp() {
