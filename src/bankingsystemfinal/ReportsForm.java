@@ -27,16 +27,16 @@ public class ReportsForm extends JFrame{
     JCheckBox CheckBox3=new JCheckBox("Products Report");
         JCheckBox CheckBox4=new JCheckBox("Loans Report");
             JCheckBox CheckBox5=new JCheckBox("Employee Report");
- add(jLabel1);
- add(CheckBox1);
-add(CheckBox2);
-add(CheckBox3);
-add(CheckBox4);
-add(CheckBox5);
-add(jButton1);
-add(jButton2);
+                add(jLabel1);
+                add(CheckBox1);
+               add(CheckBox2);
+               add(CheckBox3);
+               add(CheckBox4);
+               add(CheckBox5);
+               add(jButton1);
+               add(jButton2);
 
-setVisible(true);
+               setVisible(true);
 
 
     

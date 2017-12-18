@@ -13,7 +13,9 @@ import Staff.ManagerForm;
 import Staff.TellerForm;
 
 import java.awt.Font;
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.awt.Rectangle;
 import java.io.FileInputStream;
@@ -23,16 +25,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
+import javax.swing.JLabel;
+
+import org.jsoup.Jsoup;
 /**
  *.
  * @author seifelmosalamy
  */
-public class BankingSystemFinal implements Serializable{
-    
-    /**
-     * @throws java.io.FileNotFoundException
-     * 
-     */
+public class BankingSystemFinal implements Serializable {
+    public static ArrayList<JLabel>arraylistoflabels = new ArrayList<JLabel>();
     public static Font font = new Font("Gadugi", Font.BOLD, 12);
     public static HashMap<String,char[]> hm=new HashMap<String,char[]>();
           public static   Rectangle labelbounds = new Rectangle(0,0,100,50);
@@ -47,57 +48,15 @@ public class BankingSystemFinal implements Serializable{
    public static ArrayList<AccountInfo> LoanOfficer = new ArrayList< AccountInfo>();
    public static ArrayList<AccountInfo> AllLists = new ArrayList <AccountInfo>();
    public static     LoansApplicationForm ob = new LoansApplicationForm();
+    public static ArrayList<String> Scrabbinglist = new ArrayList<String>();
+
    public static AccountInfo a = new AccountInfo();
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         // TODO code application logic here
     //ReadFile R= new ReadFile();R.ReadFromFile(); to read from file 
 
 
-    
-       try{
-         ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
-         CustomerList=null;
-         CustomerList= (ArrayList< AccountInfo>)inp.readObject();
-         inp.close();
-        }catch(Exception c){
-            
-            }
-try{
-         ObjectInputStream inp2 = new ObjectInputStream(new FileInputStream("CustomerAgent.txt"));
-         CustomerAgentList= (ArrayList< AccountInfo>)inp2.readObject();
-         inp2.close();
-        }catch(Exception c){
-            
-            }
-try{
-         ObjectInputStream inp3 = new ObjectInputStream(new FileInputStream("Teller.txt"));
-         Teller= (ArrayList< AccountInfo>)inp3.readObject();
-         inp3.close();
-        }catch(Exception c){
-            
-            }
-try{
-         ObjectInputStream inp4 = new ObjectInputStream(new FileInputStream("Manager.txt"));
-         Manager= (ArrayList< AccountInfo>)inp4.readObject();
-         inp4.close();
-        }catch(Exception c){
-            
-            }
-try{
-         ObjectInputStream inp5 = new ObjectInputStream(new FileInputStream("LoanOfficer.txt"));
-         LoanOfficer= (ArrayList< AccountInfo>)inp5.readObject();
-         inp5.close();
-        }catch(Exception c){
-            
-            }
 
-           FillArrayListAll fill = new FillArrayListAll();
-           fill.fillarray(CustomerList);
-           fill.fillarray(HrList);
-           fill.fillarray(Teller);
-           fill.fillarray(Manager);
-           fill.fillarray(CustomerAgentList);
-           fill.fillarray(LoanOfficer);
         SmartWalletForm smf = new SmartWalletForm();
         smf.setVisible(true);
         ReportsForm rf = new ReportsForm();
@@ -120,9 +79,6 @@ try{
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
-        tf.setVisible(true);
-           
-//          Sound music = new Sound();
-//          music.play();
+        CurrencyScrabbing c = new CurrencyScrabbing()  ;
     }}
     
