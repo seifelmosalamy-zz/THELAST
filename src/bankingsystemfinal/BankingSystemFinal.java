@@ -38,7 +38,7 @@ import org.jsoup.Jsoup;
  * @author seifelmosalamy
  */
 public class BankingSystemFinal implements Serializable {
-    public static int ctrm,ctrf,ctrt,ctrmw,ctrfw,ctrtw,ctrtt,ctrfc,ctrmc,ctrtc;
+    public static int ctrm =0 ,ctrf =0,ctrt=0,ctrmw=0,ctrfw=0,ctrtw=0,ctrtt=0,ctrfc=0,ctrmc=0,ctrtc=0;
     public static ArrayList<JLabel>arraylistoflabels = new ArrayList<JLabel>();
     public static Font font = new Font("Gadugi", Font.BOLD, 12);
     public static HashMap<String,char[]> hm=new HashMap<String,char[]>();
@@ -51,6 +51,11 @@ public class BankingSystemFinal implements Serializable {
         public static ArrayList<AccountInfo> Manager  = new ArrayList<AccountInfo>();
         public static ArrayList<AccountInfo> LoanOfficer  = new ArrayList<AccountInfo>();
         public static ArrayList<AccountInfo> x  = new ArrayList<AccountInfo>();
+<<<<<<< HEAD
+=======
+        
+   
+>>>>>>> 09bf9e206a3ab25c99087cad318a3de35166193e
   public static ArrayList<LoansApplicationForm> LoansApplicationList= new ArrayList<LoansApplicationForm>(3);
    public static     LoansApplicationForm ob = new LoansApplicationForm();
     public static ArrayList<String> Scrabbinglist = new ArrayList<String>();
@@ -84,27 +89,23 @@ public class BankingSystemFinal implements Serializable {
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
 
+<<<<<<< HEAD
         CurrencyScrabbing c = new CurrencyScrabbing()  ;
         CustomerForm cf2 =new CustomerForm();
 
+=======
+
+        CurrencyScrabbing c = new CurrencyScrabbing()  ;
+        CustomerForm cf2 =new CustomerForm();
+     
+GraphicsClass graphics = new GraphicsClass();
+>>>>>>> 09bf9e206a3ab25c99087cad318a3de35166193e
         Sound sound = new Sound();
         //sound.play();
         Reports r = new Reports ();
-        GraphicsClass graphics = new GraphicsClass();
-        JFrame jf = new JFrame();
-        JFrame jf2 = new JFrame();
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        jf.setSize(1000,1000);
-        jf.setTitle("Painting Statistics");
-        jf.add(graphics);
-        PaintingForWorkers pfw=new PaintingForWorkers();
-     
         
-        jf.setVisible(true);
-        jf2.setSize(1000,1000);
-        jf2.setTitle("Painting Statistics");
-        jf2.add(pfw);
-        jf2.setVisible(true);
+        Thread t = new Thread (graphics);
+        t.start();
         
        
         
