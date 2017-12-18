@@ -246,10 +246,9 @@ public class CustomerForm extends JFrame implements Serializable{
                      for (AccountInfo searchitem3 : CustomerList){
   
                 if (searchitem3.getUserName().equals(LCUN)){
-                     if(combo1.equals("Fname")){
-                         System.err.println("found");
+                     if(combo1.equals("Fname")){                        
                     searchitem3.setFname(jTextField2.getText());
-                    System.err.println(searchitem3.getFname());
+                    
                      }
                      else if(combo1.equals("UserName")){
                      searchitem3.setUserName(jTextField2.getText());
