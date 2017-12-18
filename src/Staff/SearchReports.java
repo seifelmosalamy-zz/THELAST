@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public abstract class SearchReports {
      
     
-    public abstract int SearchForReports(String currItem, ArrayList<AccountInfo> anylist);
+    public abstract int SearchForReports(String currItem, ArrayList<LoansApplicationForm> anylist);
+    public abstract int SearchWorkers(String currItem );
      public void Search(String currItem, ArrayList<AccountInfo> acc){
     //el implementation da el mafrod nest3amlo fi search 3al accountinfo wel report mafihash search 3al accountinfo
         int ctr=0;        
