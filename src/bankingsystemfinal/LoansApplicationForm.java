@@ -172,6 +172,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                  if(ScoreSheetPoints>5){
                      
                         LoansApplicationList.add(ob);
+                        ob = new LoansApplicationForm();
                         ScoreSheetPoints=0;
                  }else if(ScoreSheetPoints<6){
                      JOptionPane JO = new JOptionPane();
@@ -195,8 +196,9 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      JOptionPane.showMessageDialog(null,"Disapproved");
                  }
                 }    
-     Reports report = new Reports();
-     report.GenderReport();
+  Reports r = new Reports ();
+        r.GenderReport();
+     
     }
     }
     private void initComp() {

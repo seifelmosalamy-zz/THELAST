@@ -5,10 +5,42 @@
  */
 package bankingsystemfinal;
 
+import static bankingsystemfinal.BankingSystemFinal.ctrf;
+import static bankingsystemfinal.BankingSystemFinal.ctrm;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GraphicsEnvironment;
+import java.awt.HeadlessException;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Seif Elmosalamy
  */
-public class GraphicsClass {
-    
+public class GraphicsClass extends JPanel 
+{
+
+    public GraphicsClass() 
+    {
+        setSize(1000,1000);
+          
+        setVisible(true);
+    }
+public void paintComponent(Graphics g)
+{     
+   
+    super.paintComponents(g);
+    g.setColor(Color.cyan);
+    //Statistics for males in loans application form
+   g.fillRect(100 , 500 - (ctrm + 50) /* da el minus*/ , 60, 1000 /*da yekbar fashkh */);
+    g.fillRect(200 , 500 , 60, 1000 );
+    //Statistics for males in loans application form
+    g.setColor(Color.pink);
+    g.fillRect(500 ,500-(ctrf + 50) , 60, 1000);
+     
 }
+}
+
