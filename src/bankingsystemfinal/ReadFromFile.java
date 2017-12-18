@@ -9,7 +9,7 @@ import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
 import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
 import static bankingsystemfinal.BankingSystemFinal.Manager;
 import static bankingsystemfinal.BankingSystemFinal.Teller;
-import static bankingsystemfinal.BankingSystemFinal.list1;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ public class ReadFromFile {
         
       try{
          ObjectInputStream inp = new ObjectInputStream(new FileInputStream("Customer.txt"));
-         list1=null;
-         list1= (ArrayList< AccountInfo>)inp.readObject();
+         CustomerList=null;
+         CustomerList= (ArrayList< AccountInfo>)inp.readObject();
          inp.close();
         }catch(Exception c){
             
