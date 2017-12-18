@@ -51,8 +51,11 @@ public class BankingSystemFinal implements Serializable {
         public static ArrayList<AccountInfo> Manager  = new ArrayList<AccountInfo>();
         public static ArrayList<AccountInfo> LoanOfficer  = new ArrayList<AccountInfo>();
         public static ArrayList<AccountInfo> x  = new ArrayList<AccountInfo>();
+<<<<<<< HEAD
+=======
         
    
+>>>>>>> 09bf9e206a3ab25c99087cad318a3de35166193e
   public static ArrayList<LoansApplicationForm> LoansApplicationList= new ArrayList<LoansApplicationForm>(3);
    public static     LoansApplicationForm ob = new LoansApplicationForm();
     public static ArrayList<String> Scrabbinglist = new ArrayList<String>();
@@ -85,9 +88,24 @@ public class BankingSystemFinal implements Serializable {
         LoginForm loginf = new LoginForm();
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
+<<<<<<< HEAD
         CurrencyScrabbing c = new CurrencyScrabbing()  ;
         CustomerForm cf2 =new CustomerForm();
        // GraphicsClass graphics = new GraphicsClass();
+=======
+
+<<<<<<< HEAD
+        CurrencyScrabbing c = new CurrencyScrabbing()  ;
+        CustomerForm cf2 =new CustomerForm();
+
+=======
+
+        CurrencyScrabbing c = new CurrencyScrabbing()  ;
+        CustomerForm cf2 =new CustomerForm();
+     
+GraphicsClass graphics = new GraphicsClass();
+>>>>>>> 09bf9e206a3ab25c99087cad318a3de35166193e
+>>>>>>> 2ce171e928978d62b3c5c342ebcc0ac01265f280
         Sound sound = new Sound();
       
         

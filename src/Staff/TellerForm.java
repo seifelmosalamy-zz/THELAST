@@ -32,7 +32,7 @@ public class TellerForm extends JFrame implements Serializable{
     
     private JButton jButton1;
     private JButton jButton2;
-    private JButton jButton3;
+   
     private JButton jButton5;
     private JLabel jLabel1;
     private JPanel jPanel1;
@@ -49,13 +49,13 @@ private JLabel jLabel4;
         jTextField1 = new JTextField();
         jButton1 = new JButton();
         jButton2 = new JButton();
-        jButton3 = new JButton();
+       
         jButton5=new JButton();
-jLabel2=new JLabel();
-jTextField2=new JTextField();
-jButton4=new JButton();
-jLabel3=new JLabel();
-jLabel4=new JLabel();
+        jLabel2=new JLabel();
+        jTextField2=new JTextField();
+        jButton4=new JButton();
+        jLabel3=new JLabel();
+        jLabel4=new JLabel();
 
         
 
@@ -79,9 +79,8 @@ jLabel4=new JLabel();
         jButton2.setBounds(340,100,90,25);
         jButton2.setText("Deposit");
 
-        jButton3.setBounds(360,300,90,25);
-        jButton3.setText("Ok");
-        jButton3.addActionListener(new ButtonWatcher());
+        
+        jButton4.addActionListener(new ButtonWatcher());
         jButton2.addActionListener(new ButtonWatcher());
         jButton1.addActionListener(new ButtonWatcher());
         jLabel2.setBounds(10, 60, 150, 25);
@@ -104,10 +103,8 @@ jLabel2.setText("Enter the amount: ");
              jPanel1.add(jButton2);
              jPanel1.add(jLabel1);
              jPanel1.add(jTextField1); 
-             jPanel1.add(jButton3);
              jPanel1.add(jLabel2);
-             jPanel1.add(jTextField2);
-             jPanel1.add(jButton3);
+             jPanel1.add(jTextField2);           
              jPanel1.add(jButton4);
              jPanel1.add(jLabel4);
              jPanel1.add(jLabel3);
@@ -115,7 +112,9 @@ jLabel2.setText("Enter the amount: ");
     }
     
     private class ButtonWatcher implements ActionListener{
-
+boolean found=false;
+int amount;
+AccountInfo searchitem7;
         @Override
         public void actionPerformed(ActionEvent e) {
 Object buttonpressed=e.getSource();
@@ -126,38 +125,42 @@ if(buttonpressed.equals(jButton4)){
  
 
 
-for (AccountInfo searchitem : x){
+for (AccountInfo searchitem6 : CustomerList){
   String y=jTextField1.getText();
-
-        
-
+   if (searchitem6.getUserName().equals(y)){
+     amount=  searchitem6.getBankAmount();
+ found=true;
+ searchitem7 = searchitem6;
 }
+   else{found=false;
+   JOptionPane.showMessageDialog(null, "Not Found");}
 
-
-}
+}}
         
     
-else if(buttonpressed.equals(jButton2))
+else if(buttonpressed.equals(jButton2)&& found==true)
         { 
 // deposit
-              int amount= Integer.parseInt(jTextField2.getText()); 
+            
+              int amt= Integer.parseInt(jTextField2.getText()); 
+              if(amt<0){JOptionPane.showMessageDialog(null, "Enter a valid amount");}
+              else{ 
+              amount+=amt;
+              searchitem7.setBankAmount(amount);
               JOptionPane jop=new JOptionPane();
-    jop.showMessageDialog(null,amount+" deposit done" );
-amount=amount-a.getBankAmount();
-    jop.showMessageDialog(null,"your current amount is "+amount);
+              jop.showMessageDialog(null,amount+" Deposit done"+". your current amount is :"+amount);
+              
+              }
     
 
-} 
-else if(buttonpressed.equals(jButton1)){
-int amount=Integer.parseInt(jTextField2.getText());
-JOptionPane jop=new JOptionPane();
-    jop.showMessageDialog(null,amount+" withdraw done" );
-    amount =amount+a.getBankAmount();
-    
-        jop.showMessageDialog(null,"your current amount is "+amount);
-
-    
-
+    } 
+   else if(buttonpressed.equals(jButton1)&& found==true ){
+   int amout=Integer.parseInt(jTextField2.getText());
+   if(amout<0 || amout>amount){JOptionPane.showMessageDialog(null, "Enter a valid amount your amount is :"+amount);}
+   else{   amount-=amout;
+       searchitem7.setBankAmount(amount);
+    JOptionPane.showMessageDialog(null," withdraw done"+". : your current amount is "+amount );
+   }
 }
         }
 

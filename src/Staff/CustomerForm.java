@@ -248,22 +248,25 @@ public class CustomerForm extends JFrame implements Serializable{
                 if (searchitem3.getUserName().equals(LCUN)){
                      if(combo1.equals("Fname")){                        
                     searchitem3.setFname(jTextField2.getText());
-                    
+                    jLabel10.setText(jTextField2.getText());
                      }
                      else if(combo1.equals("UserName")){
                      searchitem3.setUserName(jTextField2.getText());
+                     jLabel80.setText(jTextField2.getText());
                      }
                      else if(combo1.equals("AccountCurrencyType")){
                    searchitem3.setAccountCurrencyType(jTextField2.getText());
+                   jLabel70.setText(jTextField2.getText());
                      }
                      else if(combo1.equals("MobileNumber")){
                          int MN =Integer.parseInt(jTextField2.getText());
                         searchitem3.setMobileNumber(MN); 
-                        
+                        jLabel50.setText(""+jTextField2.getText());
                      }
   
                       else if(combo1.equals("Email")){
                      searchitem3.setEmail(jTextField2.getText());
+                     jLabel40.setText(jTextField2.getText());
                      }       
                      else if(combo1.equals("Password")){ 
                      String p =jTextField2.getText();
@@ -273,9 +276,11 @@ public class CustomerForm extends JFrame implements Serializable{
                         pw[i]=p.charAt(i);
                          }
                    searchitem3.setPassword(pw);
+                   jLabel30.setText(p);
                      }       
                      else if(combo1.equals("Lname")){
                      searchitem3.setLname(jTextField2.getText());
+                     jLabel20.setText(jTextField2.getText());
                      }          
            }
         }

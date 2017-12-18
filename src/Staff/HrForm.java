@@ -1,10 +1,16 @@
 package Staff;
 
+import bankingsystemfinal.AccountInfo;
+import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
+import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
+import static bankingsystemfinal.BankingSystemFinal.Manager;
+import static bankingsystemfinal.BankingSystemFinal.Teller;
 import bankingsystemfinal.SignUpForm;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -67,7 +73,7 @@ public class HrForm extends JFrame implements Serializable{
         jLabel2.setText("Staff");
 
         jTextField2.setBounds(270,70,110,25);
-        jTextField2.setText("Employe Name");
+        jTextField2.setText("Employe UserName");
 
         jLabel3.setBounds(160,70,100,25);
         jLabel3.setForeground(new Color(255, 255, 255));
@@ -82,7 +88,8 @@ public class HrForm extends JFrame implements Serializable{
 
         jButton1.setBounds(500,300,110,25);
         jButton1.setText("OK");
-
+        jButton1.addActionListener(new ButtonWatcher());
+        
         jLabel5.setBounds(10,200,100,25);
         jLabel5.setForeground(new Color(255, 255, 255));
         jLabel5.setText("Register Employe");
@@ -107,15 +114,34 @@ public class HrForm extends JFrame implements Serializable{
     
     private class ButtonWatcher implements ActionListener 
     {
-
+ArrayList<AccountInfo> choosen5= new ArrayList<AccountInfo>(3); 
+String type;
         @Override
         public void actionPerformed(ActionEvent ae) {
         SignUpForm s = new SignUpForm();
         Object b= ae.getSource();
-        if (b.equals(jButton2))
-            
+        if (b.equals(jButton2))          
             s.setVisible(true);
-        
+        if (b.equals(jButton2)){
+        type =jComboBox1.getSelectedItem().toString();
+                                   
+                    if(type.equals("CustomerAgent"))
+                        choosen5=CustomerAgentList;
+                    else if(type.equals("Teller"))
+                        choosen5=Teller;                  
+                    else if(type.equals("LoanOfficer")){
+                        choosen5=LoanOfficer;}
+        for (AccountInfo searchitem4 : choosen5){
+                   String EUN = jTextField2.getText();
+                if (searchitem4.getUserName().equals(EUN)){
+                   int q=Integer.parseInt(jTextField3.getText()); 
+                    searchitem4.setSalary(q);
+                }
+                else {
+               JOptionPane.showMessageDialog(null, "Not Found");
+                }
+           }
+        }
         }
         
     }
