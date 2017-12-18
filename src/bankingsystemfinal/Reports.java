@@ -66,13 +66,8 @@ public int SearchForReports(String currItem, ArrayList<LoansApplicationForm> Loa
     public  int SearchWorkers(String currItem )
     {
      int ctr=0;        
-        for(AccountInfo i:x)
-        {
-        if(currItem.equals(i.getGender()))
-        {
-        ctr++;
-        }
-        }
+       
+        
         for(AccountInfo i:CustomerList)
         {
         if(currItem.equals(i.getGender()))
