@@ -9,7 +9,7 @@ public class Teller extends Workers implements ITeller ,  Serializable{
     
     public void Salary()
 {
-salary=2500;
+            salary=2500;
 }
  
     public void Deposit() {

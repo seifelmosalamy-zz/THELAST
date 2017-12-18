@@ -30,6 +30,8 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                 private     String address ;
                 private    String gender;
                 private     String MobileNumber;
+                private JButton btn ; 
+                
 
     public String getLname() {
         return lname;
@@ -89,7 +91,12 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
   {
 
                 public void actionPerformed(ActionEvent e) {
+                    
                         Object buttonpressed = e.getSource();
+                        if (buttonpressed.equals(btn))
+                        {
+                            FrameForPaint ffp = new FrameForPaint();
+                        }
                         
                         if(buttonpressed.equals(jButton1))
                         {
@@ -101,10 +108,12 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                       
             if(jRadioButton1.isSelected())
 
-            { ob.gender = "Male";
+            { 
+                ob.gender = "Male";
   
             
-            }else if(jRadioButton2.isSelected()) {ob.gender = "Female";}
+            }else if(jRadioButton2.isSelected()) {
+                ob.gender = "Female";}
             
                      ob.MobileNumber = jTextField5.getText();
                      String combo1 = jComboBox1.getSelectedItem().toString();
@@ -196,8 +205,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      JOptionPane.showMessageDialog(null,"Disapproved");
                  }
                 }    
-  Reports r = new Reports ();
-        r.GenderReport();
+ 
      
     }
     }
@@ -217,6 +225,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
         jLabel8= new JLabel();
         jLabel9= new JLabel();
         jLabelValid= new JLabel();
+        btn = new  JButton ("Check Insights");
         
         jTextField1= new JTextField();
         jTextField2= new JTextField();
@@ -243,6 +252,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
         jLabel6.setForeground(Color.white);
         jLabel7.setForeground(Color.white);
         jLabel8.setForeground(Color.white);
+        
         
         jLabel1.setText("Loans Application");
         
@@ -301,7 +311,9 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
         
         jButton1.setText("Submit");
         jButton1.setBounds(200,585,100,50);
+        btn.setBounds(200,650,100,50);
 jButton1.addActionListener(new ButtonSubmit());
+btn.addActionListener(new ButtonSubmit());
         
         jLabelValid.setBounds(320,405,100,50);
         
@@ -326,6 +338,7 @@ jButton1.addActionListener(new ButtonSubmit());
         buttongp1.add(jRadioButton1);
         buttongp1.add(jRadioButton2);
         add(jPanel1);
+        jPanel1.add(btn);
         jPanel1.add(jLabel1);
         jPanel1.add(jLabel2);
         jPanel1.add(jLabel3);

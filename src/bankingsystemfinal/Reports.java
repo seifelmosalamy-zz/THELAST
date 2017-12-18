@@ -32,8 +32,7 @@ public class Reports extends SearchReports implements IReport , Serializable {
         ctrf= SearchForReports("Female",LoansApplicationList);
         ctrm=SearchForReports("Male",LoansApplicationList);
         ctrt=ctrf+ctrm;
-       System.out.println("Female:"+ctrf); //bagrb bas
-       System.out.println("Male:"+ctrm); //bagrb bardo
+      
        ctrmw=SearchWorkers("Male");
        ctrfw=SearchWorkers("Female");
        ctrtw=ctrmw+ctrfw;
@@ -42,8 +41,6 @@ public class Reports extends SearchReports implements IReport , Serializable {
     
        ctrtt=ctrtw+ctrt;
        
-       System.out.println("kol el sha8alen"+ ctrtw);
-       System.out.println("kol el fel program"+ctrtt);
 //Female+Male
     }
     public void TransactionsReport() {

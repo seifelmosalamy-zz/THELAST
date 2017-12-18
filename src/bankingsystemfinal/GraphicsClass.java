@@ -20,52 +20,45 @@ import javax.swing.JPanel;
  *
  * @author Seif Elmosalamy
  */
-public class GraphicsClass extends JPanel implements Runnable 
+public class GraphicsClass extends JPanel 
 {
 
     public GraphicsClass() 
     {
+        
         setSize(1000,1000);
+         Thread gameThread = new Thread() {
+         public void run() {
+         
+            while (true) {
+  
+        try {
+                  Thread.sleep(1000 / 100);  // milliseconds
+               } catch (InterruptedException ex) { 
+
+        
           
-        setVisible(true);
-    }
-public void paintComponent(Graphics g)
-{     
+      
+               }}}};}
+           
+           
+    
+        public void paintComponent(Graphics g)
+        {   
+    super.paintComponent(g);
    
-    super.paintComponents(g);
+   
+    
     g.setColor(Color.cyan);
     //Statistics for males in loans application form
-   g.fillRect(100 , 500 - (ctrm + 50) /* da el minus*/ , 60, 1000 /*da yekbar fashkh */);
-    g.fillRect(200 , 500 , 60, 1000 );
-    //Statistics for males in loans application form
+    g.fillRect(100 , (500 - (ctrm + 50)) /* da el minus*/ , 60, 1000 /*da yekbar fashkh */);
+
+    //Statistics for females in loans application form
     g.setColor(Color.pink);
-    g.fillRect(500 ,500-(ctrf + 50) , 60, 1000);
-     
-}
-
-    public void run ()
-    {
-           GraphicsClass graphics = new GraphicsClass();
-        JFrame jf = new JFrame();
-        JFrame jf2 = new JFrame();
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        jf.setSize(1000,1000);
-        jf.setTitle("Painting Statistics");
+    g.fillRect(500 ,(500-(ctrf + 50)) , 60, 1000);
     
-        jf.add(graphics);
-        
-        PaintingForWorkers pfw=new PaintingForWorkers();
-        jf.setVisible(true);
-        jf2.setSize(1000,1000);
-        jf2.setTitle("Painting Statistics");
-        jf2.add(pfw);
-        repaint ();
-        jf2.setVisible(true);
-        
-        
-    }
-            
-            
-        
-}
+     
+        }}       
 
+ 
+  
