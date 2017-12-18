@@ -79,9 +79,13 @@ public class BankingSystemFinal implements Serializable {
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
 
+<<<<<<< HEAD
         CurrencyScrabbing c = new CurrencyScrabbing()  ;
         CustomerForm cf2 =new CustomerForm();
      
+=======
+        CurrencyScrabbing c = new CurrencyScrabbing();
+>>>>>>> 81195f27c20800a1b0a746ecd2b652741c02b6e0
         Sound sound = new Sound();
         //sound.play();
         Reports r = new Reports ();
