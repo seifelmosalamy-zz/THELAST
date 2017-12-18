@@ -21,7 +21,7 @@ import javax.sound.sampled.SourceDataLine;
 public class Sound implements Runnable 
 {
 
-    private String fileLocation = "Relaxation.wav";
+    private String fileLocation = "Sekkafellah.wav";
 
     public Sound() { 
     }
@@ -34,8 +34,8 @@ public class Sound implements Runnable
 
     public void run()
     {
-        while(true){
-        playSound(fileLocation);}
+       
+        playSound(fileLocation);
     }
 
     private void playSound(String fileName) 

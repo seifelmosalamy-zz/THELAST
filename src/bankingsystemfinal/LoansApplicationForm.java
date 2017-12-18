@@ -196,8 +196,9 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      JOptionPane.showMessageDialog(null,"Disapproved");
                  }
                 }    
-     Reports report = new Reports();
-     report.GenderReport();
+  Reports r = new Reports ();
+        r.GenderReport();
+     
     }
     }
     private void initComp() {
