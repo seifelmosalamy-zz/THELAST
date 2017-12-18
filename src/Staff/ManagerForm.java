@@ -6,8 +6,22 @@
 package Staff;
 
 
+import bankingsystemfinal.AccountInfo;
+import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
+import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
+import static bankingsystemfinal.BankingSystemFinal.Manager;
+import static bankingsystemfinal.BankingSystemFinal.Teller;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.text.StyleConstants;
 /**
@@ -27,6 +41,7 @@ public class ManagerForm extends JFrame implements Serializable{
     private JButton jButton2;
     private JButton jButton3;
     private JComboBox<String> jComboBox1;
+    private JComboBox<String> jComboBox2;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JPanel jPanel1;
@@ -44,6 +59,7 @@ public class ManagerForm extends JFrame implements Serializable{
         jButton1 = new JButton();
         jButton2 = new JButton();
         jComboBox1 = new JComboBox<>();
+        jComboBox2 = new JComboBox<>();
         jTextField1 = new JTextField();
         jButton3 = new JButton();
 
@@ -83,10 +99,18 @@ public class ManagerForm extends JFrame implements Serializable{
         
 
         jTextField1.setBounds(200,160,130,25);
-        jTextField1.setText("Enter Employe name");
+        jTextField1.setText("Enter User name");
 
+        jComboBox2.setBounds(200,220,130,25);
+        jComboBox2.addItem("CustomerAgent");
+        jComboBox2.addItem("Teller");
+        jComboBox2.addItem("LoanOfficer");
+        jComboBox2.addItem("Manager");
+        
         jButton3.setBounds(430,160,100,25);
         jButton3.setText("Search");
+        jButton1.addActionListener(new ButtonWatcher());
+        jButton2.addActionListener(new ButtonWatcher());
              add(jPanel1);
              jPanel1.add(jButton1);
              jPanel1.add(jButton2);
@@ -94,9 +118,57 @@ public class ManagerForm extends JFrame implements Serializable{
              jPanel1.add(jLabel1);
              jPanel1.add(jLabel2);
              jPanel1.add(jComboBox1); 
+             jPanel1.add(jComboBox2);
              jPanel1.add(jRadioButton1); 
              jPanel1.add(jRadioButton2);
              jPanel1.add(jTextField1); 
             
      }
-}
+      private class ButtonWatcher implements ActionListener 
+  {
+
+       ArrayList<AccountInfo> choosen4= new ArrayList<AccountInfo>(3); 
+       int count=0;
+       String type;
+        public void actionPerformed(ActionEvent e) {
+            
+           Object buttonpressed = e.getSource();
+           if(buttonpressed.equals(jButton1)){
+              type =jComboBox2.getSelectedItem().toString();
+                                   
+                    if(type.equals("CustomerAgent"))
+                        choosen4=CustomerAgentList;
+                    else if(type.equals("Teller"))
+                        choosen4=Teller;
+                    else if(type.equals("Manager"))
+                        choosen4=Manager;
+                    else if(type.equals("LoanOfficer")){
+                        choosen4=LoanOfficer;}
+                    
+                   for (AccountInfo searchitem3 : choosen4){
+                   String EUN = jTextField1.getText();
+                if (searchitem3.getUserName().equals(EUN)){
+                    JOptionPane.showMessageDialog(null,"Found");
+                }
+                else {JOptionPane.showMessageDialog(null,"Not Found");
+                count++;
+                }
+           }
+               
+               
+           }
+           if(buttonpressed.equals(jButton2)){
+           choosen4.remove(count);
+           
+           }
+           if(buttonpressed.equals(jButton3)){           
+//               try {
+//                   
+//                 ObjectOutputStream ob2 = new ObjectOutputStream(new FileOutputStream(type+".txt"));
+//            ob2.writeObject(choosen4);
+//            ob2.close(); 
+//            } catch (FileNotFoundException ex) {
+//                   
+//               }
+        }}
+}}

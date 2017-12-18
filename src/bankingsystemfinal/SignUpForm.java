@@ -435,6 +435,7 @@ public class SignUpForm extends JFrame
                         choosen=CustomerList;
                      try {
             choosen.add(a);
+            a =null;
             ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream(type+".txt"));
             ob.writeObject(choosen);
             ob.close();      

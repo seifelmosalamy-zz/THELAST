@@ -12,6 +12,6 @@ package bankingsystemfinal.Interfaces;
 public interface ISignUp {
     
     public void SignUp();
-    public void Modify();
+   
   
 }

@@ -44,8 +44,13 @@ public class BankingSystemFinal implements Serializable {
     public static HashMap<String,char[]> hm=new HashMap<String,char[]>();
           public static   Rectangle labelbounds = new Rectangle(0,0,100,50);
     public static Rectangle textfieldbounds = new Rectangle(0,0,200, 30);
-    public static ArrayList<AccountInfo> CustomerList , CustomerAgentList , HrList ,Teller ,Manager, LoanOfficer ,x  
-    = new ArrayList<AccountInfo>(3);
+    public static ArrayList<AccountInfo> CustomerList  = new ArrayList<AccountInfo>();
+     public static ArrayList<AccountInfo> CustomerAgentList  = new ArrayList<AccountInfo>();
+      public static ArrayList<AccountInfo> HrList  = new ArrayList<AccountInfo>();
+       public static ArrayList<AccountInfo> Teller  = new ArrayList<AccountInfo>();
+        public static ArrayList<AccountInfo> Manager  = new ArrayList<AccountInfo>();
+        public static ArrayList<AccountInfo> LoanOfficer  = new ArrayList<AccountInfo>();
+        public static ArrayList<AccountInfo> x  = new ArrayList<AccountInfo>();
   public static ArrayList<LoansApplicationForm> LoansApplicationList= new ArrayList<LoansApplicationForm>(3);
    public static     LoansApplicationForm ob = new LoansApplicationForm();
     public static ArrayList<String> Scrabbinglist = new ArrayList<String>();
@@ -79,13 +84,9 @@ public class BankingSystemFinal implements Serializable {
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
 
-<<<<<<< HEAD
         CurrencyScrabbing c = new CurrencyScrabbing()  ;
         CustomerForm cf2 =new CustomerForm();
-     
-=======
-        CurrencyScrabbing c = new CurrencyScrabbing();
->>>>>>> 81195f27c20800a1b0a746ecd2b652741c02b6e0
+
         Sound sound = new Sound();
         //sound.play();
         Reports r = new Reports ();

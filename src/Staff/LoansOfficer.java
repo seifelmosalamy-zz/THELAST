@@ -10,4 +10,5 @@ public class LoansOfficer extends Staff implements ILoansOfficer , Serializable{
 
     public void AnalyzeApplicants() {
     }
+    
 }
