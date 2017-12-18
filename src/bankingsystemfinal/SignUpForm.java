@@ -358,12 +358,7 @@ public class SignUpForm extends JFrame
             
                  char[] Password = jPasswordField1.getPassword();
                  a.setPassword(Password);
-            
-                  throw new SignUpException(); 
-              }catch(SignUpException error){
-               JOptionPane.showMessageDialog(null, ex.toString());
-                    }
-                        int age ;
+            int age ;
             try{
             age= Integer.parseInt(jTextField6.getText());
             
@@ -395,6 +390,10 @@ public class SignUpForm extends JFrame
               }}catch(Exception ageEx){
                   
               }
+                  throw new SignUpException(); 
+              }catch(SignUpException error){
+               JOptionPane.showMessageDialog(null, ex.toString());
+                    }
                     }
          
 //            jLabel10.setText(error);

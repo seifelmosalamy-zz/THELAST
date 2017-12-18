@@ -1,9 +1,11 @@
 package bankingsystemfinal;
 
+import Staff.CustomerForm;
 import Staff.CustomerServiceAgentForm;
 import Staff.LoanOfficerForm;
 import Staff.ManagerForm;
 import Staff.TellerForm;
+import bankingsystemfinal.AccountInfo;
 import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
 import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
 import static bankingsystemfinal.BankingSystemFinal.Manager;
@@ -29,10 +31,8 @@ import java.util.HashMap;
  */
 public class LoginForm extends JFrame implements Serializable{
     
-    CustomerServiceAgentForm csa = new CustomerServiceAgentForm();
-     TellerForm Tf = new TellerForm();
-      ManagerForm mF = new ManagerForm();
-      LoanOfficerForm Lof = new LoanOfficerForm();
+    
+      
     public LoginForm() {
      
             
@@ -41,7 +41,7 @@ public class LoginForm extends JFrame implements Serializable{
        
        
     }
-    
+    public static String CUN;
     private char[]pw ;
     private JButton jButton1;
     private JButton jButton2;
@@ -53,8 +53,8 @@ public class LoginForm extends JFrame implements Serializable{
     private JPasswordField jPasswordField1;
     private JPanel jPanel1;
     private JComboBox jComboBox1; 
-    
-    
+
+
     private void initComponents() {
          setSize(500   ,500);
        setTitle("Login");
@@ -117,7 +117,7 @@ public class LoginForm extends JFrame implements Serializable{
              jButton1.addActionListener(new ButtonWatcher());
              jButton2.addActionListener(new ButtonWatcher());
              jTextField1.addMouseListener(new MouseListner());
-               jPasswordField1.addMouseListener(new MouseListner());
+              jPasswordField1.addMouseListener(new MouseListner());
     }
     
     private class MouseListner implements MouseListener
@@ -187,7 +187,7 @@ public class LoginForm extends JFrame implements Serializable{
                    char loginformpw[]=jPasswordField1.getPassword();
                 
                 if((hashpw.length < loginformpw.length) || (hashpw.length >loginformpw.length) ){
-                JOptionPane.showMessageDialog(null, "Invalid User Name or Password or type");
+                JOptionPane.showMessageDialog(null, "Invalid Password or type");
                 
                 }
                 else{  
@@ -202,21 +202,47 @@ public class LoginForm extends JFrame implements Serializable{
                   
                   JOptionPane.showMessageDialog(null, "Welcome "+UN);
                   if(type.equals("CustomerAgent")){
+                      CustomerServiceAgentForm csa = new CustomerServiceAgentForm();
+     
                   csa.setVisible(true);
                       setVisible(false);}
                     else if(type.equals("Teller")){
+                        TellerForm Tf = new TellerForm();
+     
                   Tf.setVisible(true);
                       setVisible(false);}
                     else if(type.equals("Manager")){
+                         ManagerForm mF = new ManagerForm();
+     
                   mF.setVisible(true);
                       setVisible(false);}
                        
                     else if(type.equals("LoanOfficer")){
+                         LoanOfficerForm Lof = new LoanOfficerForm();
                   Lof.setVisible(true);
                       setVisible(false);}
                         
-                    else if(type.equals("Customer"))
-                        JOptionPane.showMessageDialog(null, "Coming Soon");
+                    else if(type.equals("Customer")){
+                        CustomerForm cf3 =new CustomerForm();
+                       cf3.setVisible(true);
+                      setVisible(false);
+                     CUN = UN;
+                      
+                     
+                for (AccountInfo searchitem2 : CustomerList){
+  
+                if (searchitem.getUserName().equals(CUN)){
+               cf3.setjLabel10(searchitem.getFname());
+               cf3.setjLabel20(searchitem.getLname());             
+               cf3.setjLabel30(searchitem.getPassword());
+               cf3.setjLabel40(searchitem.getEmail());
+               cf3.setjLabel50(""+0+searchitem.getMobileNumber());
+               cf3.setjLabel60(""+searchitem.getBankAmount());
+               cf3.setjLabel70(searchitem.getAccountCurrencyType());
+               cf3.setjLabel80(searchitem.getUserName());
+                 
+                }}
+                    }
                   }  
                 
                  

@@ -7,6 +7,7 @@ package bankingsystemfinal;
 
 
 
+import Staff.CustomerForm;
 import Staff.CustomerServiceAgentForm;
 import Staff.HrForm;
 import Staff.ManagerForm;
@@ -55,7 +56,7 @@ public class BankingSystemFinal implements Serializable {
         // TODO code application logic here
     //ReadFile R= new ReadFile();R.ReadFromFile(); to read from file 
 
-
+       ReadFromFile rff= new ReadFromFile();
 
         SmartWalletForm smf = new SmartWalletForm();
         smf.setVisible(true);
@@ -80,5 +81,7 @@ public class BankingSystemFinal implements Serializable {
         loginf.setVisible(true);
         TransactionsForm tf = new TransactionsForm();
         CurrencyScrabbing c = new CurrencyScrabbing()  ;
+        CustomerForm cf2 =new CustomerForm();
+     
     }}
     

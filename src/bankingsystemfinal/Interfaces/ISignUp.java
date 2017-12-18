@@ -10,6 +10,8 @@ package bankingsystemfinal.Interfaces;
  * @author Seif Elmosalamy
  */
 public interface ISignUp {
-    public void SignUp();
     
+    public void SignUp();
+    public void Modify();
+  
 }
