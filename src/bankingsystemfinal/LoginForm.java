@@ -164,7 +164,7 @@ public class LoginForm extends JFrame implements Serializable{
                 String UN = jTextField1.getText();
                               
                 String type =jComboBox1.getSelectedItem().toString();
-               ArrayList<AccountInfo> choosen1= new ArrayList<AccountInfo>(3);
+               ArrayList<AccountInfo> choosen1= new ArrayList<AccountInfo>(1);
                if(type.equals("CustomerAgent"))
                         choosen1=CustomerAgentList;
                     else if(type.equals("Teller"))
@@ -217,19 +217,17 @@ public class LoginForm extends JFrame implements Serializable{
                         
                     else if(type.equals("Customer"))
                         JOptionPane.showMessageDialog(null, "Coming Soon");
-                  }  else{
-                      JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
-                  }
+                  }  
                 
                  
                 }}
                 else{
-                        JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
+                        JOptionPane.showMessageDialog(null, "Invalid User Name ot type");
                         }}
             
                     
               catch (Exception r){
-                JOptionPane.showMessageDialog(null, "Invalid User Name or Password");
+                //JOptionPane.showMessageDialog(null, "Invalid U");
                 }  }}
                 else if(buttonpressed.equals(jButton2)){
                 

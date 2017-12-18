@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package bankingsystemfinal;
-import Exceptions.AgeException;
+import Exceptions.SignUpException;
 import static bankingsystemfinal.BankingSystemFinal.CustomerAgentList;
 import static bankingsystemfinal.BankingSystemFinal.LoanOfficer;
 import static bankingsystemfinal.BankingSystemFinal.Manager;
@@ -262,7 +262,7 @@ public class SignUpForm extends JFrame
 
   private class ButtonWatcher implements ActionListener 
   {
-
+       SignUpException ex=new SignUpException();
                 public void actionPerformed(ActionEvent e) {
                     Object buttonpressed = e.getSource();
                     
@@ -295,33 +295,42 @@ public class SignUpForm extends JFrame
                      }
                          
                         
-                            
-                    if (buttonpressed.equals(jButton1)){
-                        if(buttonpressed.equals(jRadioButton1))
+                           
+                    if (buttonpressed.equals(jButton1))
+                    { 
+                        try{
+                        if(buttonpressed.equals(jRadioButton1)){
                         a.setGender("Male");
-                        else if(buttonpressed.equals(jRadioButton2))
-                                a.setGender("Female");
+                        }
+                        else if(buttonpressed.equals(jRadioButton2)){
+                                a.setGender("Female");}
                                           
                         String U = UserNameTextField.getText();
-                       try
-                       {
+                        
+                       
                            for (AccountInfo searchitem : CustomerList){
   
                 if (searchitem.getUserName().equals(U)){
                     U="found";
-                }}}catch(Exception n){}
-                        if(U.equals("Enter UserName") || U.equals("") || U.equals("found"))
-                            JOptionPane.showMessageDialog(null, "Enter another user name");
+                }}
+                        if(U.equals("Enter UserName") || U.equals("") || U.equals("found")){
+                            String Uerror="Enter another user name";
+                            ex.setUsername(Uerror);
+                        }
                         else{
-                        a.setUserName(U);}
+                        a.setUserName(U);
+                        }
                         
-                        String s = jTextField1.getText();
-                        
+                        String s = jTextField1.getText();                       
                         char[] p = jPasswordField1.getPassword();
-                        if(p.equals("Enter Password") || p.equals(""))
-                            JOptionPane.showMessageDialog(null, "Enter a valid password");
+                        
+                        if(p.equals("Enter Password") || p.equals("")){
+                            String PWerror="Enter a valid password";
+                            ex.setPW(PWerror);
+                            }
                         else{
-                        a.setPassword(p);}
+                        a.setPassword(p);
+                        }
                      if(s.equals("Enter your first name") || s.equals(""))
                      {
                        Jlabelname.setText("Enter valid name");
@@ -333,17 +342,39 @@ public class SignUpForm extends JFrame
                          a.setFname(s);
                      }
                  String lname = jTextField2.getText();
-                 if(lname.equals("Enter your last name") || lname.equals(""))
-                     JOptionPane.showMessageDialog(null, "Enter a valid Last name");
+                 if(lname.equals("Enter your last name") || lname.equals("")){
+                     String Lerror="Enter a valid Last name";
+                            ex.setLname(Lerror);
+                     }
                  else{
-                         a.setLname(lname);}
+                         a.setLname(lname);
+                 }
+
+                 String Answer = jTextField7.getText();
+                    a.setSecurityAnswer(Answer);
 
                  String email = jTextField3.getText();
-            a.setEmail(email);
-            char[] Password = jPasswordField1.getPassword();
-            a.setPassword(Password);
-            try {
-            int mobilePhone = Integer.parseInt(jTextField5.getText());
+                 a.setEmail(email);
+            
+                 char[] Password = jPasswordField1.getPassword();
+                 a.setPassword(Password);
+            
+                  throw new SignUpException(); 
+              }catch(SignUpException error){
+               JOptionPane.showMessageDialog(null, ex.toString());
+                    }
+                        int age ;
+            try{
+            age= Integer.parseInt(jTextField6.getText());
+            
+            a.setAge(age);      
+            if(a.getAge() == 0 )
+            {
+                   
+            String ageerror="Enter Valid Age";     
+                            ex.setAge(ageerror);
+            }
+         int mobilePhone = Integer.parseInt(jTextField5.getText());
               String sPhoneNumber = jTextField5.getText();
 
               Pattern pattern = Pattern.compile("\\d{11}");
@@ -357,44 +388,31 @@ public class SignUpForm extends JFrame
               else {
                    jLabel15.setText("Incorrect phone number");
                   jLabel15.setForeground(Color.red);
+                  String PhNumberError=" Enter a valid mobile number";
+                  ex.setPhonenumber(PhNumberError);
+                   jLabel10.setText("invalid");
+                   jLabel10.setForeground(Color.red);
+              }}catch(Exception ageEx){
+                  
               }
-            int age ;
-            age= Integer.parseInt(jTextField6.getText());
-            
-            a.setAge(age);
-
-            if(a.getAge() == 0 )
-            {
-                 
-                
-                
-                
-            String error="Enter Valid Age";
-            jLabel10.setText(error);
-
-            jLabel10.setForeground(Color.red);
-            age= Integer.parseInt(jTextField6.getText());
-                
-
                     }
-                    else {
-                            jLabel10.setText("Valid");
-                        jLabel10.setForeground(Color.green);
+         
+//            jLabel10.setText(error);
+//
+//            jLabel10.setForeground(Color.red);
+//            age= Integer.parseInt(jTextField6.getText());
+//                    }
+//                    else {
+//                            jLabel10.setText("Valid");
+//                        jLabel10.setForeground(Color.green);
+//
+//                    }
+                
+                
+                    
+                
 
-                    }
-            }catch(Exception exception)
-
-            {
-                JOptionPane jo = new JOptionPane();
-                jo.showMessageDialog(null, " Enter age and mobile number");
-            }
-
-                    String Answer = jTextField7.getText();
-                    a.setSecurityAnswer(Answer);
-
-                        }
-
-                else if (buttonpressed.equals(jButton2))
+                if (buttonpressed.equals(jButton2))
                 {
 
                        DeleteEmployeeForm de = new DeleteEmployeeForm();
@@ -437,7 +455,7 @@ public class SignUpForm extends JFrame
     } 
                 }
                 }
-                
+  
  
 
    private class MouseListner extends MouseAdapter
