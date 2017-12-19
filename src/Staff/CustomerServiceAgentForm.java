@@ -5,6 +5,8 @@
  */
 package Staff;
 
+import static Staff.CustomerServiceAgent.ty;
+import bankingsystemfinal.BankingSystemFinal;
 import java.awt.Color;
 import java.io.Serializable;
 import javax.swing.JFrame;
@@ -12,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.scene.control.ComboBox;
 
 /**
  *
@@ -36,12 +39,23 @@ jLabel2 = new JLabel();
 jLabel3 = new JLabel();
 jButton1= new JButton();
 jButton2= new JButton();
+AccountTypes = new JComboBox<String>();
+AccountTypeButton = new JButton();
+
+AccountTypes.addItem("Saving");
+AccountTypes.addItem("Company");
+AccountTypes.addItem("TimeDeposit");
+AccountTypes.addItem("YouthAccount");
+
+
+
+
 jButton3= new JButton();
 jTextField1= new JTextField();
 jTextField2= new JTextField();
 jCheckBox1= new JCheckBox();
 jCheckBox2= new JCheckBox();
-        jPanel1.setLayout(null);
+jPanel1.setLayout(null);
 
 setTitle("Customer Service Agent");
 jPanel1.setBackground(new Color(20, 100, 190));
@@ -73,6 +87,9 @@ jPanel1.setBackground(new Color(20, 100, 190));
         
         jButton3.setText("Remove");
         jButton3.setBounds(430, 90, 100, 25);
+        AccountTypes.setBounds(580, 90, 100, 25);
+        
+       
         
         jCheckBox1.setText("Credit Card");
         jCheckBox1.setBounds(300, 135, 100, 25);
@@ -84,6 +101,7 @@ jPanel1.setBackground(new Color(20, 100, 190));
         jCheckBox2.setBounds(430, 135, 100, 25);
         jCheckBox2.setBackground(new Color(20, 100, 190));
         jCheckBox2.setForeground(Color.white);
+
     }
  private JPanel  jPanel1;
  private JLabel jLabel1;
@@ -96,9 +114,12 @@ jPanel1.setBackground(new Color(20, 100, 190));
  private JTextField jTextField2;
  private JCheckBox jCheckBox1;
  private JCheckBox jCheckBox2;
-
+ private JButton AccountTypeButton ; 
+ 
+private JComboBox AccountTypes ; 
     private void addComponents() {
         add(jPanel1);
+        jPanel1.add(AccountTypes);
         jPanel1.add(jLabel1);
         jPanel1.add(jLabel2);
         jPanel1.add(jLabel3);
@@ -119,9 +140,17 @@ CustomerServiceAgent po = new CustomerServiceAgent();
        
         public void actionPerformed(ActionEvent ne) {
         Object b= ne.getSource();
-        if (b.equals(jButton1))  {
+        if(b.equals(AccountTypes))
+        {
+            String selected=AccountTypes.getSelectedItem().toString();
+            ty.setAccountType(selected);
             
-        }        
+        }
+        if (b.equals(jButton1)) 
+        {
+            
+        }     
+        
 }
 
        

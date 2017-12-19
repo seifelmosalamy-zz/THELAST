@@ -10,16 +10,15 @@ public class AccountInfo  implements Serializable
        
   
 
-    private int Type ; 
+   private String AccountType;
 
-    public int getType() {
-        return Type;
+    public String getAccountType() {
+        return AccountType;
     }
 
-    public void setType(int Type) {
-        this.Type = Type;
+    public void setAccountType(String AccountType) {
+        this.AccountType = AccountType;
     }
-
     public String getSecurityAnswer() {
         return SecurityAnswer;
     }

@@ -11,12 +11,17 @@ import javax.swing.JTextField;
 
 public class CustomerServiceAgent extends Staff implements ICustomerServiceAgent, Serializable {
 
+    public static AccountInfo ty;
 public void search(ArrayList<AccountInfo> lis,JTextField tf)
-    {for (AccountInfo searchitem3 : lis){
+    {
+        for (AccountInfo searchitem3 : lis){
                    String EUN = tf.getText();
                 if (searchitem3.getUserName().equals(EUN)){
                     JOptionPane.showMessageDialog(null,"Found");
-                }}}
+                    searchitem3=ty;
+                }
+        }
+    }
 public void RemoveAccount(ArrayList<AccountInfo> lis,JTextField tf)
     {
         int ctr=0;
@@ -29,6 +34,11 @@ public void RemoveAccount(ArrayList<AccountInfo> lis,JTextField tf)
                 }}
     lis.remove(ctr);
     }
+
+public void ChooseAccountType (ArrayList<AccountInfo> lis,JTextField tf)
+{
+        
+}
     public void AddNewAccount() {
         SignUpForm csas = new SignUpForm();
         csas.setVisible(true);
@@ -44,7 +54,7 @@ public void RemoveAccount(ArrayList<AccountInfo> lis,JTextField tf)
     }
 
     public void SellDebitCard(AccountInfo c) {
-        c.setCard("CreditCard");
+        c.setCard("DebitCard");
     }
 
     public void DeleteUserAccount() {
