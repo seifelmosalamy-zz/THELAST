@@ -10,6 +10,8 @@ import java.io.Serializable;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -110,5 +112,17 @@ jPanel1.setBackground(new Color(20, 100, 190));
 
     }
  
-
+private class ButtonWatcher implements ActionListener
+    {
+CustomerServiceAgent po = new CustomerServiceAgent();
+     String type;
+       
+        public void actionPerformed(ActionEvent ne) {
+        Object b= ne.getSource();
+        if (b.equals(jButton1))  {
+            
+        }        
 }
+
+       
+    }}
