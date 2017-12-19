@@ -31,24 +31,29 @@ public class GraphicsClass extends JPanel
          public void run() {
          
             while (true) {
-  
+            
+                
+                 repaint ();
+
         try {
                   Thread.sleep(1000 / 100);  // milliseconds
                } catch (InterruptedException ex) { 
 
         
-          
-      
-               }}}};}
+               
+               }
+            }
+           }
+         };
+         gameThread.start();
+    }
            
            
     
         public void paintComponent(Graphics g)
         {   
+            
     super.paintComponent(g);
-   
-   
-    
     g.setColor(Color.cyan);
     //Statistics for males in loans application form
     g.fillRect(100 , (500 - (ctrm + 50)) /* da el minus*/ , 60, 1000 /*da yekbar fashkh */);
@@ -58,7 +63,8 @@ public class GraphicsClass extends JPanel
     g.fillRect(500 ,(500-(ctrf + 50)) , 60, 1000);
     
      
-        }}       
+        }
+}       
 
  
   

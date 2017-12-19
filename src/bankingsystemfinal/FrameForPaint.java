@@ -16,8 +16,8 @@ public class FrameForPaint extends JFrame
 
     public FrameForPaint() {
         
-          Reports re = new Reports();
-          re.GenderReport();                
+//          Reports re = new Reports();
+//          re.GenderReport();                
           setSize(1000,1000);    
           setTitle("Painting Statistics");
           add(new GraphicsClass());
