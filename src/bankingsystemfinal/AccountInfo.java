@@ -1,6 +1,8 @@
 package bankingsystemfinal; 
 import static bankingsystemfinal.BankingSystemFinal.x;
 import java.io.Serializable;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 public class AccountInfo  implements Serializable 
 { 
@@ -70,6 +72,7 @@ public class AccountInfo  implements Serializable
         return salary;
     }
 
+    
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -80,7 +83,15 @@ public class AccountInfo  implements Serializable
     private String SecurityQuestion;
     
     private int MobileNumber;
-    
+    private String Card;
+
+    public String getCard() {
+        return Card;
+    }
+
+    public void setCard(String Card) {
+        this.Card = Card;
+    }
     private String SecurityAnswer ; 
     
     private String Gender ; 
