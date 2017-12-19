@@ -96,6 +96,7 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                         if (buttonpressed.equals(btn))
                         {
                             FrameForPaint ffp = new FrameForPaint();
+                            
                         }
                         
                         if(buttonpressed.equals(jButton1))
@@ -312,8 +313,8 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
         jButton1.setText("Submit");
         jButton1.setBounds(200,585,100,50);
         btn.setBounds(200,650,100,50);
-jButton1.addActionListener(new ButtonSubmit());
-btn.addActionListener(new ButtonSubmit());
+        jButton1.addActionListener(new ButtonSubmit());
+        btn.addActionListener(new ButtonSubmit());
         
         jLabelValid.setBounds(320,405,100,50);
         
