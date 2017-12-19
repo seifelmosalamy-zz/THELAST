@@ -88,6 +88,15 @@ public class SignUpException extends Exception{
         return this.age;
     }
    public String toString(){
-  return super.toString()+" "+this.PW+" "+this.Email+" "+this.Username+" "+this.age+" "+this.fname+" "+this.lname+" "+this.phonenumber;
-}
+       if(age==""&&
+   fname==""&&
+    lname==""&&
+    Email==""&&
+    phonenumber==""&&
+    Username==""&&
+    PW=="")
+           return "Valid";
+       else{
+  return ""+this.PW+" "+this.Email+" "+this.Username+" "+this.age+" "+this.fname+" "+this.lname+" "+this.phonenumber;
+}}
 }

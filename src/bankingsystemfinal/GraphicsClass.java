@@ -22,15 +22,20 @@ import javax.swing.JPanel;
  */
 public class GraphicsClass extends JPanel 
 {
+    int ctr =0; 
 
     public GraphicsClass() 
     {
-        
+                  if(ctrm < 0 )
+                  {
+                      ctrm  *= 20;
+                  }   
         setSize(1000,1000);
          Thread gameThread = new Thread() {
          public void run() {
          
-            while (true) {
+            while (true) 
+            {
             
                 
                  repaint ();
@@ -52,15 +57,19 @@ public class GraphicsClass extends JPanel
     
         public void paintComponent(Graphics g)
         {   
-            
-    super.paintComponent(g);
-    g.setColor(Color.cyan);
-    //Statistics for males in loans application form
-    g.fillRect(100 , (500 - (ctrm + 50)) /* da el minus*/ , 60, 1000 /*da yekbar fashkh */);
+            super.paintComponent(g);
+         
+     //Azbot counter el male bs 
 
-    //Statistics for females in loans application form
-    g.setColor(Color.pink);
-    g.fillRect(500 ,(500-(ctrf + 50)) , 60, 1000);
+            g.setColor(Color.cyan);
+            System.out.println(ctrm);
+                
+            //Statistics for males in loans application form
+            g.fillRect(100 , (500 - (ctrm + 50)) /* da el minus*/ , 60, 1000 /*da yekbar fashkh */);
+
+            //Statistics for females in loans application form
+            g.setColor(Color.pink);
+            g.fillRect(500 ,(500-(ctrf + 50)) , 60, 1000);
     
      
         }

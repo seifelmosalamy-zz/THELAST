@@ -5,12 +5,12 @@
  */
 package Staff;
 
-<<<<<<< HEAD
+
 import static Staff.CustomerServiceAgent.ty;
 import bankingsystemfinal.BankingSystemFinal;
-=======
+
 import static bankingsystemfinal.BankingSystemFinal.CustomerList;
->>>>>>> a473d4ffc14766341ebbe23860be0a939ccc403c
+
 import java.awt.Color;
 import java.io.Serializable;
 import javax.swing.JFrame;
@@ -123,11 +123,11 @@ jPanel1.setBackground(new Color(20, 100, 190));
 private JComboBox AccountTypes ; 
     private void addComponents() {
         add(jPanel1);
-<<<<<<< HEAD
         jPanel1.add(AccountTypes);
-=======
         jCheckBox1.addActionListener(new ButtonWatcher());
->>>>>>> a473d4ffc14766341ebbe23860be0a939ccc403c
+        jButton1.addActionListener(new ButtonWatcher());
+        jButton2.addActionListener(new ButtonWatcher());
+        jButton3.addActionListener(new ButtonWatcher());
         jPanel1.add(jLabel1);
         jPanel1.add(jLabel2);
         jPanel1.add(jLabel3);
@@ -148,7 +148,7 @@ CustomerServiceAgent po = new CustomerServiceAgent();
        
         public void actionPerformed(ActionEvent ne) {
         Object b= ne.getSource();
-<<<<<<< HEAD
+
         if(b.equals(AccountTypes))
         {
             String selected=AccountTypes.getSelectedItem().toString();
@@ -160,7 +160,7 @@ CustomerServiceAgent po = new CustomerServiceAgent();
             
         }     
         
-=======
+
         if (b.equals(jButton1))  {
             po.AddNewAccount();
         }  
@@ -177,7 +177,7 @@ CustomerServiceAgent po = new CustomerServiceAgent();
         if(b.equals(jCheckBox2)){
         po.SellDebitCard();
         }
->>>>>>> a473d4ffc14766341ebbe23860be0a939ccc403c
+
 }
 
        

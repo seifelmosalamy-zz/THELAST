@@ -8,17 +8,23 @@ package Staff;
 
 import bankingsystemfinal.AccountInfo;
 import static bankingsystemfinal.BankingSystemFinal.CustomerList;
+import static bankingsystemfinal.BankingSystemFinal.a;
 import bankingsystemfinal.LoginForm;
 import static bankingsystemfinal.LoginForm.CUN;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -282,8 +288,18 @@ public class CustomerForm extends JFrame implements Serializable{
                      searchitem3.setLname(jTextField2.getText());
                      jLabel20.setText(jTextField2.getText());
                      }          
+                      try {
+                          
+            a =null;
+            ObjectOutputStream ob= new ObjectOutputStream(new FileOutputStream("Customer"+".txt"));
+            ob.writeObject(CustomerList);
+            ob.close();      
+              } catch (IOException ex) {
+              JOptionPane.showMessageDialog(null, "Error in save");}
+        
+                }
            }
         }
     }
     
-}}}
+}}

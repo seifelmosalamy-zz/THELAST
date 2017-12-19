@@ -15,6 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import sun.font.GraphicComponent;
 
 /**
  *
@@ -95,8 +96,8 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                         Object buttonpressed = e.getSource();
                         if (buttonpressed.equals(btn))
                         {
-                            FrameForPaint ffp = new FrameForPaint();
-                            
+                                     FrameForPaint ffp = new FrameForPaint();
+                                     
                         }
                         
                         if(buttonpressed.equals(jButton1))
@@ -180,8 +181,9 @@ public class LoansApplicationForm extends JFrame implements Serializable, Runnab
                      
                      
                  if(ScoreSheetPoints>5){
-                     
+                
                         LoansApplicationList.add(ob);
+                       
                         ob = new LoansApplicationForm();
                         ScoreSheetPoints=0;
                  }else if(ScoreSheetPoints<6){

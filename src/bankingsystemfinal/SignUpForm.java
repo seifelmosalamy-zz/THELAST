@@ -392,7 +392,9 @@ public class SignUpForm extends JFrame
               }
                   throw new SignUpException(); 
               }catch(SignUpException error){
-               JOptionPane.showMessageDialog(null, ex.toString());
+                 
+                    
+              JOptionPane.showMessageDialog(null, ex.toString());
                     }
                     }
          

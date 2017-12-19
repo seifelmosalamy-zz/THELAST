@@ -6,6 +6,7 @@
 package Staff;
 
 import bankingsystemfinal.AccountInfo;
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import static bankingsystemfinal.BankingSystemFinal.a;
 import java.awt.*;
 import static bankingsystemfinal.BankingSystemFinal.x;
@@ -13,8 +14,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
 import static bankingsystemfinal.BankingSystemFinal.x;
-import static bankingsystemfinal.BankingSystemFinal.a;
-import static bankingsystemfinal.BankingSystemFinal.CustomerList;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import static java.lang.System.exit;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -23,6 +32,30 @@ import javax.swing.*;
  */
 public class TellerForm extends JFrame implements Serializable{
     public TellerForm() {
+        
+        WindowListener exitListener = new WindowAdapter()
+        {
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        int confirm = JOptionPane.showOptionDialog(
+             null, "Are You Sure to Close Application?", 
+             "Exit Confirmation", JOptionPane.YES_NO_OPTION, 
+             JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if (confirm == 0) {
+             try {
+         
+            ObjectOutputStream ob3= new ObjectOutputStream(new FileOutputStream("Customer.txt"));
+            ob3.writeObject(CustomerList);
+            ob3.close();      
+              } catch (IOException ex) {
+              JOptionPane.showMessageDialog(null, "Error in save");}
+        
+           System.exit(0);
+        }
+    }
+};  
+            super.addWindowListener(exitListener);
         
          setSize(800,400);
        setTitle("Teller");
@@ -59,7 +92,7 @@ private JLabel jLabel4;
 
         
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+       
 
         jPanel1.setLayout(null);
         jPanel1.setBounds(0,0,1000,500);
@@ -111,54 +144,71 @@ jLabel2.setText("Enter the amount: ");
              jPanel1.add(jButton5);
     }
     
-    private class ButtonWatcher implements ActionListener{
-boolean found=false;
-int amount;
-AccountInfo searchitem7;
-        @Override
-        public void actionPerformed(ActionEvent e) {
-Object buttonpressed=e.getSource();
-if(buttonpressed.equals(jButton5)){
-CloseFrame();
-}
-if(buttonpressed.equals(jButton4)){
+            private class ButtonWatcher implements ActionListener{
+        boolean found=false;
+        int amount;
+        int i =0; 
+
+        AccountInfo searchitem7 = new AccountInfo();
+
+                public void actionPerformed(ActionEvent e) {
+        Object buttonpressed=e.getSource();
+        if(buttonpressed.equals(jButton5)){
+        CloseFrame();
+        }
+        if(buttonpressed.equals(jButton4)){
+
+
+        for (AccountInfo searchitem6 : CustomerList){
+                    i++         ; 
+          String y=jTextField1.getText();
+           if (searchitem6.getUserName().equals(y)){
+
+             amount=  searchitem6.getBankAmount();
+         found=true;
+         JOptionPane.showMessageDialog(null, "Found");
+         searchitem7 = searchitem6;
+         
  
+         
+        }
+         
+
+        }  if(!found)
+           
+           JOptionPane.showMessageDialog(null, "Not Found");}
 
 
-for (AccountInfo searchitem6 : CustomerList){
-  String y=jTextField1.getText();
-   if (searchitem6.getUserName().equals(y)){
-     amount=  searchitem6.getBankAmount();
- found=true;
- searchitem7 = searchitem6;
-}
-   else{found=false;
-   JOptionPane.showMessageDialog(null, "Not Found");}
 
-}}
-        
-    
-else if(buttonpressed.equals(jButton2)&& found==true)
+ if(buttonpressed.equals(jButton2))
         { 
 // deposit
             
+            
               int amt= Integer.parseInt(jTextField2.getText()); 
-              if(amt<0){JOptionPane.showMessageDialog(null, "Enter a valid amount");}
+              if(amt<0){
+                  JOptionPane.showMessageDialog(null, "Enter a valid amount");}
               else{ 
+                  
               amount+=amt;
-              searchitem7.setBankAmount(amount);
+              CustomerList.get(i).setBankAmount(amount);
+              
+             // searchitem7.setBankAmount(amount);
+              
+              
               JOptionPane jop=new JOptionPane();
               jop.showMessageDialog(null,amount+" Deposit done"+". your current amount is :"+amount);
               
-              }
+              } //fadel bs nsave fl file 
     
 
     } 
-   else if(buttonpressed.equals(jButton1)&& found==true ){
+   else if(buttonpressed.equals(jButton1)){
    int amout=Integer.parseInt(jTextField2.getText());
    if(amout<0 || amout>amount){JOptionPane.showMessageDialog(null, "Enter a valid amount your amount is :"+amount);}
    else{   amount-=amout;
-       searchitem7.setBankAmount(amount);
+   CustomerList.get(i).setBankAmount(amount);
+      
     JOptionPane.showMessageDialog(null," withdraw done"+". : your current amount is "+amount );
    }
 }

@@ -159,6 +159,7 @@ public class LoginForm extends JFrame implements Serializable{
 
                 public void actionPerformed(ActionEvent e) 
                 {
+                    Boolean flag = false ;
                 Object buttonpressed = e.getSource();
                 if (buttonpressed.equals(jButton1)){
                 String UN = jTextField1.getText();
@@ -178,25 +179,26 @@ public class LoginForm extends JFrame implements Serializable{
                for (AccountInfo HashMapItem : choosen1){
                hm.put(HashMapItem.getUserName(), HashMapItem.getPassword());
                }
+               
                 for (AccountInfo searchitem : choosen1){
   try{
                 if (searchitem.getUserName().equals(UN)){
                    char hashpw[]= hm.get(UN);
                    
-                    
+                   flag = true ;
                    char loginformpw[]=jPasswordField1.getPassword();
                 
-                if((hashpw.length < loginformpw.length) || (hashpw.length >loginformpw.length) ){
-                JOptionPane.showMessageDialog(null, "Invalid Password or type");
+                //if((hashpw.length < loginformpw.length) || (hashpw.length >loginformpw.length) ){
+                //JOptionPane.showMessageDialog(null, "Invalid Password or type");
                 
-                }
-                else{  
+                //}
+                //else{  
                     int found=0;
                     for(int i=0;i<hashpw.length ;i++){
                  if(hashpw[i]==loginformpw[i]) {
                     found++;
                      
-                 }          
+                // }          
                   } 
                   if(found==hashpw.length){
                   
@@ -246,16 +248,20 @@ public class LoginForm extends JFrame implements Serializable{
                   }  
                 
                  
-                }}
-                else{
-                        JOptionPane.showMessageDialog(null, "Invalid User Name ot type");
-                        }}
+                }
+                }
+                
+  }
             
                     
               catch (Exception r){
                 //JOptionPane.showMessageDialog(null, "Invalid U");
-                }  }}
-                else if(buttonpressed.equals(jButton2)){
+                }  }
+                if (!flag)
+                { JOptionPane.showMessageDialog(null, "Invalid User Name ot type");
+                    
+                }
+                 if(buttonpressed.equals(jButton2)){
                 
               SignUpForm SUF= new SignUpForm();
               SUF.setVisible(true);
@@ -266,6 +272,6 @@ public class LoginForm extends JFrame implements Serializable{
        
                 }
                 
-                }
+                }}
                   
                 
