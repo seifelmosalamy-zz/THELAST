@@ -18,10 +18,15 @@ public void search(ArrayList<AccountInfo> lis,JTextField tf)
                    String EUN = tf.getText();
                 if (searchitem3.getUserName().equals(EUN)){
                     JOptionPane.showMessageDialog(null,"Found");
+<<<<<<< HEAD
                     searchitem3=ty;
                 }
         }
     }
+=======
+                }
+                else{ JOptionPane.showMessageDialog(null," Not Found");}}}
+>>>>>>> a473d4ffc14766341ebbe23860be0a939ccc403c
 public void RemoveAccount(ArrayList<AccountInfo> lis,JTextField tf)
     {
         int ctr=0;
