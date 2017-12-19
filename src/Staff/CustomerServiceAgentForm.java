@@ -5,6 +5,7 @@
  */
 package Staff;
 
+import static bankingsystemfinal.BankingSystemFinal.CustomerList;
 import java.awt.Color;
 import java.io.Serializable;
 import javax.swing.JFrame;
@@ -99,6 +100,7 @@ jPanel1.setBackground(new Color(20, 100, 190));
 
     private void addComponents() {
         add(jPanel1);
+        jCheckBox1.addActionListener(new ButtonWatcher());
         jPanel1.add(jLabel1);
         jPanel1.add(jLabel2);
         jPanel1.add(jLabel3);
@@ -120,8 +122,21 @@ CustomerServiceAgent po = new CustomerServiceAgent();
         public void actionPerformed(ActionEvent ne) {
         Object b= ne.getSource();
         if (b.equals(jButton1))  {
-            
-        }        
+            po.AddNewAccount();
+        }  
+        if(b.equals(jButton2)){
+        po.search(CustomerList, jTextField1);
+        }
+        if(b.equals(jButton3)){
+        po.RemoveAccount(CustomerList, jTextField1);
+        }
+        if(b.equals(jCheckBox1)){
+           
+        po.SellCreditCard();
+        }
+        if(b.equals(jCheckBox2)){
+        po.SellDebitCard();
+        }
 }
 
        

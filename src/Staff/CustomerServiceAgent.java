@@ -16,7 +16,8 @@ public void search(ArrayList<AccountInfo> lis,JTextField tf)
                    String EUN = tf.getText();
                 if (searchitem3.getUserName().equals(EUN)){
                     JOptionPane.showMessageDialog(null,"Found");
-                }}}
+                }
+                else{ JOptionPane.showMessageDialog(null," Not Found");}}}
 public void RemoveAccount(ArrayList<AccountInfo> lis,JTextField tf)
     {
         int ctr=0;
@@ -44,7 +45,7 @@ public void RemoveAccount(ArrayList<AccountInfo> lis,JTextField tf)
     }
 
     public void SellDebitCard(AccountInfo c) {
-        c.setCard("CreditCard");
+        c.setCard("DebitCard");
     }
 
     public void DeleteUserAccount() {
